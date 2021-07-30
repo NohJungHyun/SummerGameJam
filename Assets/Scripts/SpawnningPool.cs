@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpawnningPool : MonoBehaviour
 {
+    public GameObject ghostParent;
+
     public Queue<GameObject> spawnQueue = new Queue<GameObject>(20);
 
     public WallSizeController wallSizeController;
@@ -22,11 +24,14 @@ public class SpawnningPool : MonoBehaviour
     {
         wallSizeController = GetComponent<WallSizeController>();
 
-        for(int i = 0; i < spawnQueue.Count; i++)
+        for (int i = 0; i < 20; i++)
         {
             int randGhost = Random.Range(0, ghosts.Count);
 
             GameObject ghostInst = GameObject.Instantiate(ghosts[randGhost]);
+            ghostInst.transform.SetParent(ghostParent.transform);
+            ghostInst.SetActive(false);
+
             spawnQueue.Enqueue(ghostInst);
         }
 
@@ -40,30 +45,32 @@ public class SpawnningPool : MonoBehaviour
 
         needSpawnTime += Time.deltaTime;
 
-        int randGhost = Random.Range(0, ghosts.Count);
+        // int randGhost = Random.Range(0, ghosts.Count);
         int randWall = Random.Range(0, 4);
 
         float randX = Random.Range(-spawnOffsetX, spawnOffsetX);
         float randY = Random.Range(-spawnOffsetY, spawnOffsetY);
 
+        GameObject ghostObj = spawnQueue.Dequeue();
+
         switch (randWall)
         {
-            case 0: // 오른쪽
-                GameObject.Instantiate(ghosts[randGhost], new Vector2(wallSizeController.rightWall.transform.position.x, wallSizeController.rightWall.transform.position.y + randY), Quaternion.identity);
+            case 0:
+                ghostObj.transform.position = new Vector2(wallSizeController.rightWall.transform.position.x, wallSizeController.rightWall.transform.position.y + randY);
                 break;
-
-            case 1: // 왼쪽
-                GameObject.Instantiate(ghosts[randGhost], new Vector2(wallSizeController.leftWall.transform.position.x, wallSizeController.leftWall.transform.position.y + randY), Quaternion.identity);
+            case 1:
+                ghostObj.transform.position = new Vector2(wallSizeController.leftWall.transform.position.x, wallSizeController.leftWall.transform.position.y + randY);
                 break;
-
-            case 2: // 위쪽
-                GameObject.Instantiate(ghosts[randGhost], new Vector2(wallSizeController.topWall.transform.position.x + randX, wallSizeController.topWall.transform.position.y), Quaternion.identity);
-                break;
-
-            case 3: // 아래쪽
-                GameObject.Instantiate(ghosts[randGhost], new Vector2(wallSizeController.downWall.transform.position.x + randX, wallSizeController.downWall.transform.position.y), Quaternion.identity);
-                break;
+            case 2:
+                ghostObj.transform.position = new Vector2(wallSizeController.topWall.transform.position.x + randX, wallSizeController.topWall.transform.position.y);
+            break;
+            case 3:
+                ghostObj.transform.position = new Vector2(wallSizeController.downWall.transform.position.x + randX, wallSizeController.downWall.transform.position.y);
+            break;
         }
+
+        ghostObj.SetActive(true);
+
         curGhostNum++;
         needSpawnTime = 0;
     }
