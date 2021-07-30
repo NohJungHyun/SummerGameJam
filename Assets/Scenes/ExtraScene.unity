@@ -345,6 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2edf5f86868fd87499bbbabcd07e3a3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostParent: {fileID: 0}
   wallSizeController: {fileID: 0}
   ghosts:
   - {fileID: 1573064353220308847, guid: 72b97b9e60b883d40bf3849a9768c36f, type: 3}
@@ -388,6 +389,36 @@ MonoBehaviour:
   leftWall: {fileID: 254055602}
   topWall: {fileID: 1265574508}
   downWall: {fileID: 1132555197}
+--- !u!1 &977583388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 977583389}
+  m_Layer: 0
+  m_Name: GhostParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &977583389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977583388}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1132555194
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,6 +746,40 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1289790221 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1573064353220308847, guid: 72b97b9e60b883d40bf3849a9768c36f, type: 3}
+  m_PrefabInstance: {fileID: 1573064351943101538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &1289790222
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289790221}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5, y: 0.5}
+      - {x: -0.5, y: -0.5}
+      - {x: 0.5, y: -0.5}
+      - {x: 0.5, y: 0.5}
 --- !u!1001 &1573064351943101538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -770,5 +835,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProtoGhost
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4104729542417334665, guid: 72b97b9e60b883d40bf3849a9768c36f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 72b97b9e60b883d40bf3849a9768c36f, type: 3}
