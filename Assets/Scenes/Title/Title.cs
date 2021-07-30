@@ -7,7 +7,7 @@ public class Title : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene(SceneManager.Scene.Ymk, 1);
+        SceneManager.LoadScene(SceneManager.Scene.Ymk);
     }
 
     public void QuitGame()
