@@ -15,7 +15,11 @@ public class SliceScript : MonoBehaviour
 
     private void Update()
     {
+        if (Time.deltaTime == 0)
+            return;
+
         Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
         if (Input.GetMouseButtonDown(0))
             start = mouse;
         else if (Input.GetMouseButtonUp(0))
@@ -24,8 +28,14 @@ public class SliceScript : MonoBehaviour
             effectTime = 0.1f;
             RaycastHit2D[] raycastHit2D = Physics2D.LinecastAll(start, end);
             foreach (RaycastHit2D hit in raycastHit2D)
-                Debug.Log(hit.transform.name);
+            {
+                Ghost ghost = hit.transform.GetComponentInParent<Ghost>();
+                if (ghost == null)
+                    continue;
+                ghost.Die();
+            }
 
+            //start->end로 이펙트가 이동하도록 설정
             GameObject temp = Instantiate(sword, start, Quaternion.identity);
             SwordMove moveObj = temp.AddComponent<SwordMove>();
             moveObj.speed = speed;

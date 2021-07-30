@@ -8,6 +8,7 @@ public class SceneManager : Singleton<SceneManager>
     protected Image fade;
     private bool nowLoade = false;
 
+    //¿Ãµø«“ æ¿µÈ
     public enum Scene
     {
         Title,
@@ -16,6 +17,7 @@ public class SceneManager : Singleton<SceneManager>
         Quit
     }
 
+    //¿Ãµø«“æ¿,æ¿¿ÃµøΩ√∞£
     public static void LoadScene(Scene scene,float delay = 1)
     {
         if (instance == null)

@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Title : MonoBehaviour
 {
+    //인게임 씬으로 이동
     public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.Scene.InGame);
     }
 
+    //게임 종료
     public void QuitGame()
     {
 #if UNITY_EDITOR

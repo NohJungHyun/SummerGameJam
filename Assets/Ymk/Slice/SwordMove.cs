@@ -9,6 +9,9 @@ public class SwordMove : MonoBehaviour
 
     private void Update()
     {
+        if (Time.deltaTime == 0)
+            return;
+
         speed = Mathf.Max(speed, 0.001f);
         transform.position = Vector3.Lerp(transform.position, target, speed);
         if (Vector3.Distance(transform.position, target) < 0.001f)
