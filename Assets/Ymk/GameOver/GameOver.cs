@@ -30,6 +30,7 @@ public class GameOver : MonoBehaviour
         bestScore.text = bestS.ToString();
         killnum.text = ScoreManager.instance.kill.ToString();
         trynum.text = DataManager.instance.playData.tryNum.ToString();
+        DataManager.instance.SaveData();
     }
 
     public void GoTitle()
