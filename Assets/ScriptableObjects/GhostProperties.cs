@@ -8,6 +8,8 @@ public abstract class GhostProperties : ScriptableObject
     public int takeCount;
     public float moveSpeed;
 
+    public int comboCount;
+
     public ParticleSystem moveEffect;
     public ParticleSystem deadEffect;
 

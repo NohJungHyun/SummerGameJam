@@ -15,14 +15,15 @@ public class DeathZone : MonoBehaviour
     //        }
     //    }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.GetComponent<Ghost>())
+        if (other.gameObject.GetComponentInParent<Ghost>())
         {
-            Debug.Log(other.gameObject.GetComponent<Ghost>().name);
+            Ghost ghost = other.gameObject.GetComponentInParent<Ghost>();
+            Debug.Log(ghost.name);
 
-            SpawnningPool.spawnQueue.Enqueue(other.gameObject.GetComponent<Ghost>());
-            other.gameObject.GetComponent<Ghost>().Die();
+            SpawnningPool.spawnQueue.Enqueue(ghost);
+            ghost.Die();
         }
     }
 }
