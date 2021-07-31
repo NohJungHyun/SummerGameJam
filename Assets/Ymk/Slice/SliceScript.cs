@@ -14,7 +14,7 @@ public class SliceScript : MonoBehaviour
 
     private void Update()
     {
-        if (Time.deltaTime == 0)
+        if (Time.deltaTime == 0 || GameOver.gameEnd)
             return;
 
         Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -36,7 +36,7 @@ public class SliceScript : MonoBehaviour
                 if (ghost == null)
                     continue;
                 ghost.Die(true);
-                ScoreManager.AddScore(50);
+                ScoreManager.instance.kill++;
             }
 
             {

@@ -113,7 +113,7 @@ public class SpawnningPool : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        while (true)
+        while (!GameOver.gameEnd)
         {
             if (spawnQueue.Count <= 0)
                 yield return new WaitUntil(() => spawnQueue.Count > 0);
