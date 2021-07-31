@@ -34,8 +34,8 @@ public class Ghost : MonoBehaviour, IDamagable
         {
             Die();
             ScoreManager.AddScore(ComboSystem.instance.paneltyNum);
-            
-            BadNews.instance.badDelegate?.Invoke();
+            ComboSystem.instance.remainComboTime = 0;
+            BadNews.instance.InstanciateAlert();
         }
     }
 

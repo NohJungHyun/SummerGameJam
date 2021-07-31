@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: 77cad68fe2331dd4eb84ed9b643545f0
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _Shineglow: {fileID: 2800000, guid: a67eb12a86a58774fae3e611e5c29dda, type: 3}
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

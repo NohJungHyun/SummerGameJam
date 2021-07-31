@@ -36,14 +36,13 @@ public class GameOver : MonoBehaviour
 
     public void GoTitle()
     {
-        gameEnd = false;
         SceneManager.LoadScene(SceneManager.Scene.Title);
 
     }
 
     public void GoRetry()
     {
-        gameEnd = false;
+
         SceneManager.LoadScene(SceneManager.Scene.InGame);
 
     }

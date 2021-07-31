@@ -22,7 +22,7 @@ public class DashGhost : GhostProperties
     float timer;
 
     bool isLongdist;
-
+    SpriteRenderer[] sprites;
     public void Start()
     {
         ghost.SetBasicPosToProperties();
@@ -34,6 +34,9 @@ public class DashGhost : GhostProperties
         target = ghost.dir;
         ghost.SetBasicPosToProperties();
         color = ghost.GetComponentInChildren<SpriteRenderer>().color;
+
+       sprites = ghost.GetComponentsInChildren<SpriteRenderer>();
+
     }
 
     // public override void Move()
@@ -55,6 +58,9 @@ public class DashGhost : GhostProperties
 
     public override void Move()
     {
+        foreach (SpriteRenderer sp in sprites)
+            sp.flipX = (ghost.spawnPos <= 3) && (4 <= ghost.targetPos);
+
         if (ghost.targetPos != -1)
             target = SpawnningPool.Node[ghost.targetPos];
 
