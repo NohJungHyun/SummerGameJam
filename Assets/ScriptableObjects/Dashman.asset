@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a79d3e2124127346bacf031d90df348, type: 3}
+  m_Name: Dashman
+  m_EditorClassIdentifier: 
+  ghost: {fileID: 0}
+  takeCount: 0
+  moveSpeed: 1
+  moveEffect: {fileID: 0}
+  deadEffect: {fileID: 0}
+  curPos: {x: 0, y: 0}
+  basicPos: {x: 0, y: 0}
+  target: {x: 0, y: 0}
+  timeSpeed: 0.0053787
+  shortDist: 1
+  longDist: 2
+  moveAmplified: 2
