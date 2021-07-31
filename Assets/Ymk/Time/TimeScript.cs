@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class TimeScript : MonoBehaviour
 {
+    public static float platformSpeed()
+    {
+        if (Application.platform == RuntimePlatform.Android)
+            return 3;
+        else
+            return 1;
+    }
+
+
     public GameObject runBtn;
     public GameObject stopBtn;
 

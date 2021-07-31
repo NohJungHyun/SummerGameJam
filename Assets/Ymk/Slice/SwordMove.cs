@@ -15,7 +15,7 @@ public class SwordMove : MonoBehaviour
         float nowSpeed = speed;
 
         if (Application.platform == RuntimePlatform.Android)
-            nowSpeed *= 3;
+            nowSpeed *= TimeScript.platformSpeed();
 
         transform.position = Vector3.Lerp(transform.position, target, nowSpeed);
         if (Vector3.Distance(transform.position, target) < 0.001f)

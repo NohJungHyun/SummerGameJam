@@ -11,6 +11,9 @@ public class SliceScript : MonoBehaviour
 
     public GameObject swordEffect;
 
+    public AudioSource audioSource;
+    public AudioClip []swordSound;
+
     private void Update()
     {
         if (Time.deltaTime == 0 || GameOver.gameEnd)
@@ -27,15 +30,25 @@ public class SliceScript : MonoBehaviour
             Vector3 dir = (end - start).normalized;
 
             //����
-            RaycastHit2D[] raycastHit2D = Physics2D.BoxCastAll(center, new Vector3(Vector3.Distance(start, end), 0.5f, 1), Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg, Vector2.zero, 10, 1 << LayerMask.NameToLayer("Ghost")); 
+            RaycastHit2D[] raycastHit2D = Physics2D.BoxCastAll(center, new Vector3(Vector3.Distance(start, end), 0.5f, 1), Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg, Vector2.zero, 10, 1 << LayerMask.NameToLayer("Ghost"));
 
+            bool slashFlag = false;
             foreach (RaycastHit2D hit in raycastHit2D)
             {
                 Ghost ghost = hit.transform.GetComponent<Ghost>();
                 if (ghost == null)
                     continue;
+                slashFlag = true;
                 ghost.Die(true);
                 ScoreManager.instance.kill++;
+            }
+
+            audioSource.PlayOneShot(swordSound[Random.Range(0, swordSound.Length)]);
+
+            if (!slashFlag)
+            {
+                Debug.Log("아무것도 못뱀");
+                ComboSystem.instance.remainComboTime = 0;
             }
 
             {

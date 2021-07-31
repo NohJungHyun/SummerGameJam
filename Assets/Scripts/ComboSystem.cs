@@ -106,7 +106,7 @@ public class ComboSystem : MonoBehaviour
                 ReturnToQueue(t);
                 yield break;
             }
-            yield return Time.deltaTime;
+            yield return Time.deltaTime / (TimeScript.platformSpeed()*4);
         }
     }
 

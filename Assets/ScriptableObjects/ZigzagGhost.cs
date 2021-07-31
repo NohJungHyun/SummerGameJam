@@ -11,17 +11,23 @@ public class ZigzagGhost : GhostProperties
     public float magnitude;
 
     Vector2 axis;
-
+    SpriteRenderer[] sprites;
     public override void Init(Ghost ghost)
     {
         base.Init(ghost);
         axis = Vector2.up;
         basicPos = ghost.transform.position;
         target = ghost.dir;
+
+        sprites = ghost.GetComponentsInChildren<SpriteRenderer>();
+
     }
 
     public override void Move()
     {
+        foreach (SpriteRenderer sp in sprites)
+            sp.flipX = (ghost.spawnPos <= 3) && (4 <= ghost.targetPos);
+
         if (ghost.targetPos != -1)
             target = SpawnningPool.Node[ghost.targetPos];
 
