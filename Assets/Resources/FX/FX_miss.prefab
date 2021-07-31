@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4786519028990110438}
   - component: {fileID: 5176348176575819615}
   - component: {fileID: 1279348905560943753}
+  - component: {fileID: -3333451076325902861}
   m_Layer: 0
   m_Name: FX_miss
   m_TagString: Untagged
@@ -4862,3 +4863,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &-3333451076325902861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3341971578299292507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a64afedfbf0c0a43b51f36222e994a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 1
