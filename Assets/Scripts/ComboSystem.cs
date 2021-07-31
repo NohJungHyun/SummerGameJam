@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ComboSystem : MonoBehaviour
 {
+    public int scorePerSkill;
+
     public Queue<Text> comboTextQueue;
     public static ComboSystem instance;
 
@@ -13,15 +15,10 @@ public class ComboSystem : MonoBehaviour
     public Text comboText;
     public Vector2 particlePos;
     Color basicColor;
-    // public ScoreManager scoreManager;
-
 
     [Header("콤보 유지 가능한 잔여 시간")]
     public float coninousComboTime; //처치 시 얻게 되는 유지 시간
     public float remainComboTime;
-
-    [Header("점수 곱셈")]
-    public int additionalScore;
 
     public int comboCount;
 
@@ -43,7 +40,7 @@ public class ComboSystem : MonoBehaviour
 
         for (int i = 0; i < 30; i++)
         {
-            Text obj = GameObject.Instantiate(comboText, new Vector2(100,100), Quaternion.identity);
+            Text obj = GameObject.Instantiate(comboText, new Vector2(100, 100), Quaternion.identity);
             obj.transform.SetParent(comboTextCanvas.transform);
 
             obj.gameObject.SetActive(false);
@@ -68,13 +65,13 @@ public class ComboSystem : MonoBehaviour
             comboCount++;
             remainComboTime = coninousComboTime;
 
-            if (comboCount > 2)
-            {
-                CallEncourageEffect(ghostDiePos);
+            if (comboCount > 10)
+                ScoreManager.AddScore(scorePerSkill + ((int)(comboCount * 0.1) * 10));
+            else
+                ScoreManager.AddScore(scorePerSkill);
 
-                if (comboCount > 10)
-                    additionalScore = (int)(comboCount * 0.1) * 10;
-            }
+            if (comboCount > 2)
+                CallEncourageEffect(ghostDiePos);
         }
     }
 
@@ -114,28 +111,27 @@ public class ComboSystem : MonoBehaviour
 
     public IEnumerator DeleteParticle(GameObject obj)
     {
-        while(true)
+        while (true)
         {
             deleteParticleTime += Time.deltaTime;
-            if(deleteParticleTime > 2f && obj)
+            if (deleteParticleTime > 2f && obj)
             {
                 Destroy(obj);
                 deleteParticleTime = 0;
                 yield break;
             }
-            if(!obj)
+            if (!obj)
                 yield break;
-                
+
             yield return Time.deltaTime;
         }
-        
+
     }
 
     public void InitCombo()
     {
         comboCount = 0;
         remainComboTime = 0;
-        additionalScore = 0;
     }
 
     public void ReturnToQueue(Text t)
@@ -143,5 +139,10 @@ public class ComboSystem : MonoBehaviour
         t.gameObject.SetActive(false);
         t.color = basicColor;
         comboTextQueue.Enqueue(t);
+    }
+
+    public void IncreaseScore()
+    {
+
     }
 }

@@ -2,20 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class GhostEncountPercent
 {
     public Ghost ghost;
     public float encountPercentage;
-    float pay;
+    float weight;
 
-    public void SetPay(float p)
+    public void SetPay(float w)
     {
-        pay = p;
+        weight = w;
     }
 
     public float GetPay()
     {
-        return pay;
+        return weight;
     }
 }
 
@@ -34,6 +35,10 @@ public class MonsterRevealTable : ScriptableObject
         for (int reveal = 0; reveal < monsterRevealList.Count; reveal++)
         {
             totalPercent += monsterRevealList[reveal].encountPercentage;
+        }
+
+        for (int reveal = 0; reveal < monsterRevealList.Count; reveal++)
+        {
             monsterRevealList[reveal].SetPay(monsterRevealList[reveal].encountPercentage / totalPercent);
         }
 
