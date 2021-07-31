@@ -76,12 +76,29 @@ public class ComboSystem : MonoBehaviour
         }
     }
 
+    Text backObject;
+
     public void CallEncourageEffect(Vector2 diePos)
     {
+        if (backObject != null)
+        {
+            Color color = backObject.color;
+            color.r *= 0.2f;
+            color.g *= 0.2f;
+            color.b *= 0.2f;
+            color.a *= 0.5f;
+            backObject.color = color;
+        }
+
         Text calledText = comboTextQueue.Dequeue();
         calledText.gameObject.SetActive(true);
         calledText.text = comboCount.ToString() + "Hit!";
         calledText.transform.position = Camera.main.WorldToScreenPoint(diePos);
+
+        calledText.color = Color.Lerp(Color.white, Color.red, Mathf.Min(50f, comboCount) / 50f);
+
+
+        backObject = calledText;
 
         Vector2 vec = new Vector2(0, -5);
         ParticleSystem p = GameObject.Instantiate(encourageParticle, particlePos, Quaternion.identity).GetComponent<ParticleSystem>();
