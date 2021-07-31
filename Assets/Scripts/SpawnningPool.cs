@@ -14,7 +14,7 @@ public class SpawnningPool : MonoBehaviour
 
     [Header("초기 Queue에 유령들을 만들고자 하는 수를 설정할 때 사용.")]
     [SerializeField]
-    int spawnThrehold;
+    int spawnThrehold = 10;
 
     public List<Ghost> ghosts = new List<Ghost>();
 
@@ -29,8 +29,6 @@ public class SpawnningPool : MonoBehaviour
     public int ememrgencyCallNum;
 
     [Header("출현 위치 설정 파트")]
-    public Vector2 screenCenter;
-
     float horizontalSize, verticalSize;
     float offset;
 
@@ -51,7 +49,6 @@ public class SpawnningPool : MonoBehaviour
 
         horizontalSize = screenToWorldPos.x;
         verticalSize = screenToWorldPos.y;
-        screenCenter = new Vector2(horizontalSize, verticalSize);
 
         MakeGraph();
 
@@ -61,13 +58,13 @@ public class SpawnningPool : MonoBehaviour
     private void MakeGraph()
     {
         Node.Clear();
-        Node.Add(new Vector2(horizontalSize * +0.5f, verticalSize * +1.2f));
-        Node.Add(new Vector2(horizontalSize * +1f, verticalSize * +0.5f));
-        Node.Add(new Vector2(horizontalSize * +1f, verticalSize * -0.5f));
-        Node.Add(new Vector2(horizontalSize * +0.5f, verticalSize * -1.2f));
-        Node.Add(new Vector2(horizontalSize * -0.5f, verticalSize * -1f));
-        Node.Add(new Vector2(horizontalSize * -1f, verticalSize * -0.5f));
-        Node.Add(new Vector2(horizontalSize * -1.2f, verticalSize * +0.5f));
+        Node.Add(new Vector2(horizontalSize * +0.5f, verticalSize * +1.2f)); // 높은 우상단
+        Node.Add(new Vector2(horizontalSize * +1f, verticalSize * +0.5f)); // 낮은 우상단
+        Node.Add(new Vector2(horizontalSize * +1f, verticalSize * -0.5f)); // 낮은 우하단
+        Node.Add(new Vector2(horizontalSize * +0.5f, verticalSize * -1.2f));  // 높은 우하단
+        Node.Add(new Vector2(horizontalSize * -0.5f, verticalSize * -1f)); // 좌하단 (1)
+        Node.Add(new Vector2(horizontalSize * -1f, verticalSize * -0.5f)); // 좌하단 (2)
+        Node.Add(new Vector2(horizontalSize * -1.2f, verticalSize * +0.5f)); // 
         Node.Add(new Vector2(horizontalSize * -0.5f, verticalSize * +1.2f));
 
         for (int i = 0; i < 8; i++)
@@ -135,12 +132,6 @@ public class SpawnningPool : MonoBehaviour
                 else
                     yield return new WaitForSeconds(Random.Range(minSpawnTime, maxSpawnTime));
 
-                //int randGhost = Random.Range(0, ghosts.Count);
-                //int randWall = Random.Range(0, 4);
-
-                //float randX = Random.Range(-horizontalSize, horizontalSize);
-                //float randY = Random.Range(-verticalSize, verticalSize);
-
                 Ghost obj = spawnQueue.Dequeue();
 
                 int startNode = spawnPos[Random.Range(0, spawnPos.Count)];
@@ -164,7 +155,6 @@ public class SpawnningPool : MonoBehaviour
         int randGhost = Random.Range(0, ghosts.Count);
 
         Ghost ghostInst = GameObject.Instantiate(ghosts[randGhost]);
-        // ghostInst.GetComponent<Ghost>().SetGhostProperties(ghosts[randGhost].GetGhostProperties());
         
         ghostInst.transform.SetParent(spawnerParent);
         spawnQueue.Enqueue(ghostInst.GetComponent<Ghost>());
@@ -179,6 +169,11 @@ public class SpawnningPool : MonoBehaviour
 
         RankUpGhost(table.fastGhostSpeedTable);
         RankUpGhost(table.normalGhostSpeedTable);
+
+        for(int idx = 0; idx < spawnThrehold; idx++)
+        {
+            CreateGhost();
+        }
     }
 
     public void RankUp(List<float> _minSpawn, List<float> _maxSpawn, List<float> _minSpawnTime, List<float> _maxSpawnTime)
