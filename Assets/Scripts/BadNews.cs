@@ -73,7 +73,7 @@ public class BadNews : MonoBehaviour
             // float randY = -Mathf.PingPong(0, randShakePos.y);
 
             // ui.transform.position = Vector2.Lerp(ui.transform.position, new Vector2(randX, randY), Time.deltaTime * 3f) ;
-            ui.transform.position = Vector2.Lerp(ui.transform.position, randShakePos, Time.deltaTime * 3f) ;
+            ui.transform.position = Vector2.Lerp(ui.transform.position, randShakePos, Time.deltaTime * 5f) ;
 
             yield return null;
         }
