@@ -994,6 +994,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4653864725838762017, guid: 10648e9e2d1afb24ba31a3e145442f96, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653864725838762017, guid: 10648e9e2d1afb24ba31a3e145442f96, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5913860733607632411, guid: 10648e9e2d1afb24ba31a3e145442f96, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -1314,6 +1322,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6074062143942457205, guid: 23f55cf4f8b519b4a8ee4eb40f916de5, type: 3}
+      propertyPath: scorePerSkill
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6074062143942457205, guid: 23f55cf4f8b519b4a8ee4eb40f916de5, type: 3}
       propertyPath: comboTextCanvas
       value: 
