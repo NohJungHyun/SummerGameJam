@@ -99,14 +99,14 @@ public class ComboSystem : MonoBehaviour
             {
                 Debug.Log("해방이다!");
                 Color fadeOutColor = new Color(0, 0, 0, 0.1f);
-                t.color -= fadeOutColor * fadeoutModifier;
+                t.color -= fadeOutColor * fadeoutModifier * ((Application.platform == RuntimePlatform.Android) ? 6 : 1);
             }
             else
             {
                 ReturnToQueue(t);
                 yield break;
             }
-            yield return Time.deltaTime / (TimeScript.platformSpeed()*4);
+            yield return Time.deltaTime;
         }
     }
 
