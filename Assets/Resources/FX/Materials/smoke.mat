@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: smoke
-  m_Shader: {fileID: 4800000, guid: 6622dce30fce56e4d92a066120e10a98, type: 3}
-  m_ShaderKeywords: _USEDISSOLVE_ON
+  m_Shader: {fileID: 203, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 32e9a5e4bcdf6b14bb9584412b97841c, type: 3}
+        m_Texture: {fileID: 2800000, guid: dc8a1af1e8be27d40843505df1174b9d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -97,6 +97,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _InvFade: 1
     - _MainTex_intcustom1z: 3
     - _Metallic: 0
     - _Mode: 0
@@ -109,7 +110,7 @@ Material:
     - _ThirdTex_int: 0
     - _UVSec: 0
     - _UseDepthfade: 0
-    - _UseDissolve: 1
+    - _UseDissolve: 0
     - _UseDissolveBurn: 0
     - _UseDistortion: 0
     - _UseSecondTexture: 0
@@ -121,8 +122,8 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveBurnColor: {r: 1, g: 1, b: 1, a: 0}
-    - _DissolveTex_PannerXYUV: {r: 0, g: -0.5, b: 0, a: 0}
-    - _DissolveTex_UVscaleoffsetcustom2xyoffsetuv: {r: 1.5, g: 1.5, b: 0, a: 0}
+    - _DissolveTex_PannerXYUV: {r: 0, g: 0, b: 0, a: 0}
+    - _DissolveTex_UVscaleoffsetcustom2xyoffsetuv: {r: 1, g: 1, b: 0, a: 0}
     - _DistortTex_PannerXYUV: {r: 0, g: 0, b: 0, a: 0}
     - _DistortTex_UVscaleoffset: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
@@ -134,4 +135,5 @@ Material:
     - _ThirdTex_PannerXYUV: {r: 0, g: 0, b: 0, a: 0}
     - _ThirdTex_UVscaleoffset: {r: 0, g: 0, b: 0, a: 0}
     - _ThirdTex_color: {r: 1, g: 1, b: 1, a: 0}
+    - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   m_BuildTextureStacks: []
