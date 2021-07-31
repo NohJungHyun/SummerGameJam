@@ -7,7 +7,6 @@ public class SliceScript : MonoBehaviour
     private Vector3 start;
     private Vector3 end;
 
-    [Range(0.001f, 1)]
     public float speed;
 
     public GameObject swordEffect;

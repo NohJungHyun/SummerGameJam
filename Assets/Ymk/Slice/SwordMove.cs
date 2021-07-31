@@ -12,8 +12,12 @@ public class SwordMove : MonoBehaviour
         if (Time.deltaTime == 0)
             return;
 
-        speed = Mathf.Max(speed, 0.001f);
-        transform.position = Vector3.Lerp(transform.position, target, speed);
+        float nowSpeed = speed;
+
+        if (Application.platform == RuntimePlatform.Android)
+            nowSpeed *= 3;
+
+        transform.position = Vector3.Lerp(transform.position, target, nowSpeed);
         if (Vector3.Distance(transform.position, target) < 0.001f)
             Destroy(gameObject);
     }
