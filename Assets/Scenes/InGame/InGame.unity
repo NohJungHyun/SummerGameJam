@@ -553,7 +553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2861489607093595461, guid: b6d536af18185c64e9bd666fb4f1e8e8, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2861489607093595461, guid: b6d536af18185c64e9bd666fb4f1e8e8, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1544,9 +1544,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnerParent: {fileID: 2038580059}
-  spawnThrehold: 0
+  spawnThrehold: 3
   ghosts:
-  - {fileID: 1573064353220308850, guid: 72b97b9e60b883d40bf3849a9768c36f, type: 3}
+  - {fileID: 6564110010058115365, guid: cb77928c702fcc146ad8ef906529543b, type: 3}
   curGhostNum: 0
   minGhostNum: 0
   maxGhostNum: 30
