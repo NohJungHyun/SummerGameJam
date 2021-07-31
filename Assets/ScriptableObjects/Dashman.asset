@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghost: {fileID: 0}
   takeCount: 0
-  moveSpeed: 1
+  moveSpeed: 1.5
   comboCount: 0
   moveEffect: {fileID: 0}
   deadEffect: {fileID: 7287567719240576002, guid: ed2f720d955808144ac75724e4a5440f, type: 3}
@@ -22,5 +22,5 @@ MonoBehaviour:
   basicPos: {x: 0, y: 0}
   target: {x: 0, y: 0}
   shortDist: 1
-  longDist: 2
-  moveAmplified: 2
+  longDist: 4
+  moveAmplified: 3

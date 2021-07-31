@@ -3,8 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SceneManager : Singleton<SceneManager>
+public class SceneManager : MonoBehaviour
 {
+    private static SceneManager _instance;
+    public static SceneManager instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = Instantiate(Resources.Load("Manager/SceneManager") as GameObject).GetComponent<SceneManager>();
+                DontDestroyOnLoad(_instance.gameObject);
+            }
+            return _instance;
+        }
+    }
+
+
     protected Image fade;
     private bool nowLoade = false;
 
@@ -59,9 +74,8 @@ public class SceneManager : Singleton<SceneManager>
         nowLoade = false;
     }
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
         fade = transform.GetChild(0).GetComponent<Image>();
     }
 }
