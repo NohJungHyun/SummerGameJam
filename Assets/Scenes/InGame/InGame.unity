@@ -1537,7 +1537,7 @@ MonoBehaviour:
   ghosts:
   - {fileID: 6564110010058115365, guid: cb77928c702fcc146ad8ef906529543b, type: 3}
   minGhostNum: 0
-  maxGhostNum: 5
+  maxGhostNum: 3
   minSpawnTime: 0.5
   maxSpawnTime: 1
   ememrgencyCallNum: 0

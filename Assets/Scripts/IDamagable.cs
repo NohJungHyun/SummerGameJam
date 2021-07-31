@@ -5,6 +5,6 @@ using UnityEngine;
 public interface IDamagable
 {
     void TakeCount(int count);
-    void Die();
+    void Die(bool effect);
 
 } 

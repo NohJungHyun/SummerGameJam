@@ -46,7 +46,10 @@ public class DashGhost : GhostProperties
 
     public override void Move()
     {
-        if(Vector3.Distance(target, curPos) < 0.1f) return;
+        if (ghost.targetPos != -1)
+            target = SpawnningPool.Node[ghost.targetPos];
+
+        if (Vector3.Distance(target, curPos) < 0.1f) return;
 
         if (!isLongdist)
         {

@@ -43,9 +43,9 @@ public class Ghost : MonoBehaviour, IDamagable
         Debug.Log("터치 성공!");
     }
 
-    public void Die() 
+    public void Die(bool effect = false) 
     {
-        ghostProperties.CallDeadEffect();
+        ghostProperties.CallDeadEffect(effect);
         ComboSystem.instance.IncreaseComboCount(ghostProperties.comboCount);
         SpawnningPool.spawnQueue.Enqueue(this);
         this.gameObject.SetActive(false);

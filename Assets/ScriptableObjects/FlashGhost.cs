@@ -28,6 +28,7 @@ public class FlashGhost : GhostProperties
     {
         base.Init(ghost);
 
+        alphaTime = Random.Range(0, 1f);
         target = ghost.dir;
         polygon = ghost.GetComponent<PolygonCollider2D>();
         sprites = ghost.GetComponentsInChildren<SpriteRenderer>();
@@ -83,10 +84,13 @@ public class FlashGhost : GhostProperties
     // }
 
     float alphaTime = 0;
+    float backAlphaValue = 1;
     public void Flash()
     {
-        alphaTime += Time.deltaTime*2f;
         float alphaValue = (Mathf.Cos(alphaTime) + 1f) * 0.5f;
+        float mul = backAlphaValue - alphaValue < 0 ? 3 : 1f;
+        backAlphaValue = alphaValue;
+        alphaTime += Time.deltaTime* mul;
         for (int i = 0; i < sprites.Length; i++)
         {
             Color c = color[i];

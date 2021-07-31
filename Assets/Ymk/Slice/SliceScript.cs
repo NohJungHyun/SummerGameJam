@@ -35,7 +35,7 @@ public class SliceScript : MonoBehaviour
                 Ghost ghost = hit.transform.GetComponent<Ghost>();
                 if (ghost == null)
                     continue;
-                ghost.Die();
+                ghost.Die(true);
                 ScoreManager.AddScore(50);
             }
 
