@@ -21,6 +21,7 @@ MonoBehaviour:
   curPos: {x: 0, y: 0}
   basicPos: {x: 0, y: 0}
   target: {x: 0, y: 0}
+  ghostScore: 50
   shortDist: 1
   longDist: 4
   moveAmplified: 3

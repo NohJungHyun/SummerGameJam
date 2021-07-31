@@ -8,6 +8,9 @@ public class SpawnningPool : MonoBehaviour
 
     [SerializeField]
     public static Queue<Ghost> spawnQueue = new Queue<Ghost>();
+    public MonsterRevealTable table;
+
+    public int difficulty;
 
     [Header("초기 Queue에 유령들을 만들고자 하는 수를 설정할 때 사용.")]
     [SerializeField]
@@ -28,8 +31,8 @@ public class SpawnningPool : MonoBehaviour
     [Header("출현 위치 설정 파트")]
     public Vector2 screenCenter;
 
-    public float horizontalSize, verticalSize;
-    public float offset;
+    float horizontalSize, verticalSize;
+    float offset;
 
     public static List<Vector2> Node = new List<Vector2>();
     List<int>[] V = new List<int>[8];
@@ -51,6 +54,8 @@ public class SpawnningPool : MonoBehaviour
         screenCenter = new Vector2(horizontalSize, verticalSize);
 
         MakeGraph();
+
+        TimeChecker.TimeOn += RankCheck;
     }
 
     private void MakeGraph()
@@ -153,6 +158,84 @@ public class SpawnningPool : MonoBehaviour
         }
     }
 
+    public void CreateGhost()
+    {
+        int randGhost = Random.Range(0, ghosts.Count);
+
+        Ghost ghostInst = GameObject.Instantiate(ghosts[randGhost]);
+        // ghostInst.GetComponent<Ghost>().SetGhostProperties(ghosts[randGhost].GetGhostProperties());
+        
+        ghostInst.transform.SetParent(spawnerParent);
+        spawnQueue.Enqueue(ghostInst.GetComponent<Ghost>());
+        ghostInst.gameObject.SetActive(false);
+    }
+
+    public void RankCheck()
+    {
+        difficulty++;
+
+        RankUp(table.minGhostNumTable, table.maxGhostNumTable, table.minSpawnTime, table.maxSpawnTime);
+
+        RankUpGhost(table.fastGhostSpeedTable);
+        RankUpGhost(table.normalGhostSpeedTable);
+    }
+
+    public void RankUp(List<float> _minSpawn, List<float> _maxSpawn, List<float> _minSpawnTime, List<float> _maxSpawnTime)
+    {
+        if(_minSpawn.Count -1 < difficulty) return;
+
+        minGhostNum = (int)_minSpawn[difficulty];
+        maxGhostNum = (int)_maxSpawn[difficulty];
+
+        minSpawnTime = _minSpawnTime[difficulty];
+        maxSpawnTime = _maxSpawnTime[difficulty];
+    }
+
+    public void RankUpGhost(StageGhostImprovement improvement)
+    {
+        if(improvement.ghosts.Count -1 < difficulty) return;
+
+        for(int i = 0; i < improvement.ghosts.Count; i++)
+        {
+            for(int j = 0; j< ghosts.Count; j++)
+            {
+                print(improvement.ghosts[i].Equals(ghosts[j]));
+                print(improvement.elementImprovementNum[difficulty]);
+
+                if(improvement.ghosts[i].Equals(ghosts[j]))
+                {
+                    print(ghosts[j]);
+                    ghosts[j].SetGhostProperties(ghosts[j].proto);
+                    print(ghosts[j].GetGhostProperties());
+
+                    ghosts[j].SetGhostSpeed(improvement.elementImprovementNum[difficulty]);
+                    //ghosts[j].SetGhostSpeed(improvement.elementImprovementNum[difficulty]);
+                    print(ghosts[j].name + "의 속도가 " + improvement.elementImprovementNum[difficulty] + "가 되었다!: " + ghosts[j].GetGhostProperties().moveSpeed);
+                }
+            }
+        }
+        
+        // if(improvement.ghosts.Count <= 0 || improvement.ghosts.Count - 1 < difficulty) return;
+
+        // for(int i = 0; i < improvement.ghosts.Count; i++)
+        // {
+        //     print(improvement.ghosts[i]);
+        //     print(improvement.elementImprovementNum[difficulty]);
+        //     improvement.ghosts[i].SetGhostSpeed(improvement.elementImprovementNum[difficulty]);
+
+        //     if(ghosts.Contains(improvement.ghosts[i]))
+        //     {
+        //         print("동일한 것들 찾았어!");
+        //         for(int j = 0; j < ghosts.Count; j++)
+        //         {
+        //             if(ghosts[j].Equals(improvement.ghosts[i]))
+        //             {
+        //                 ghosts[j].SetGhostSpeed((improvement.elementImprovementNum[difficulty]));
+        //             }
+        //         }
+        //     }
+        // }
+    }
 
     //switch (randWall)
     //{
@@ -217,14 +300,5 @@ public class SpawnningPool : MonoBehaviour
     //     }
     // }
 
-    public void CreateGhost()
-    {
-        int randGhost = Random.Range(0, ghosts.Count);
 
-        GameObject ghostInst = GameObject.Instantiate(ghosts[randGhost].gameObject);
-
-        ghostInst.transform.SetParent(spawnerParent);
-        spawnQueue.Enqueue(ghostInst.GetComponent<Ghost>());
-        ghostInst.SetActive(false);
-    }
 }

@@ -21,6 +21,7 @@ MonoBehaviour:
   curPos: {x: -0.072994374, y: -0.06551232}
   basicPos: {x: -1.3219465, y: -1.1864445}
   target: {x: 0, y: 0}
+  ghostScore: 50
   hideValue: 1
   showValue: 3
   moveAmplified: 2

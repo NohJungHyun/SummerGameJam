@@ -15,6 +15,8 @@ public abstract class GhostProperties : ScriptableObject
 
     public Vector2 curPos, basicPos, target;
 
+    public int ghostScore;
+
     public virtual void Init(Ghost ghost)
     {
         this.ghost = ghost;
@@ -31,6 +33,11 @@ public abstract class GhostProperties : ScriptableObject
     {
         if(effect)
             Instantiate(deadEffect, curPos, Quaternion.identity);
+    }
+
+    public virtual void RankUp()
+    {
+
     }
 
 }

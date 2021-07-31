@@ -141,8 +141,4 @@ public class ComboSystem : MonoBehaviour
         comboTextQueue.Enqueue(t);
     }
 
-    public void IncreaseScore()
-    {
-
-    }
 }

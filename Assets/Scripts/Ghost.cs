@@ -14,7 +14,6 @@ public class Ghost : MonoBehaviour, IDamagable
     void Start() 
     {
         ghostProperties = ScriptableObject.Instantiate(proto);
-        
         ghostProperties.Init(this);   
     }
 
@@ -23,6 +22,8 @@ public class Ghost : MonoBehaviour, IDamagable
         ghostProperties.curPos = transform.position;
 
         ghostProperties.Move();
+
+        print(this.name + "있니?: " + GetGhostProperties());
 
         Arrive();
     }
@@ -59,4 +60,19 @@ public class Ghost : MonoBehaviour, IDamagable
     {
         this.dir = dir;
     }
+
+    public void SetGhostSpeed(float s)
+    {
+        ghostProperties.moveSpeed = s;
+    }
+
+    public GhostProperties GetGhostProperties()
+    {
+        return ghostProperties;
+    }
+    public void SetGhostProperties(GhostProperties p)
+    {
+        ghostProperties = p;
+    }
 }
+

@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828b69af7451f05469f75e95114c245d, type: 3}
+  m_Name: Stage1
+  m_EditorClassIdentifier: 
+  normalGhostSpeedTable:
+    elementImprovementNum:
+    - 1
+    - 2
+    - 3
+    ghosts:
+    - {fileID: 6564110010058115365, guid: cb77928c702fcc146ad8ef906529543b, type: 3}
+    - {fileID: 5623607701584656797, guid: 52b8284e97a0e194bbebac3875acb223, type: 3}
+  fastGhostSpeedTable:
+    elementImprovementNum:
+    - 1
+    - 1.5
+    - 2
+    ghosts:
+    - {fileID: 3419808379480642369, guid: 028ec154ba6b93f459a335c17b917c70, type: 3}
+  minGhostNumTable:
+  - 3
+  - 3
+  - 3
+  maxGhostNumTable:
+  - 5
+  - 6
+  - 7
+  minSpawnTime:
+  - 0.5
+  - 0.3
+  - 0.1
+  maxSpawnTime:
+  - 1
+  - 0.6
+  - 0.3
