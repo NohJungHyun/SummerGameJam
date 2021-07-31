@@ -6,12 +6,11 @@ public class SliceScript : MonoBehaviour
 {
     private Vector3 start;
     private Vector3 end;
-    public GameObject sword;
 
     [Range(0.001f, 1)]
     public float speed;
 
-    private float effectTime = 0;
+    public GameObject swordEffect;
 
     private void Update()
     {
@@ -25,7 +24,6 @@ public class SliceScript : MonoBehaviour
         else if (Input.GetMouseButtonUp(0))
         {
             end = mouse;
-            effectTime = 0.1f;
             Vector3 center = (end + start) / 2;
             Vector3 dir = (end - start).normalized;
 
@@ -37,14 +35,18 @@ public class SliceScript : MonoBehaviour
                 Ghost ghost = hit.transform.GetComponent<Ghost>();
                 if (ghost == null)
                     continue;
-                ghost.Die();
+                ghost.Die(true);
+                ScoreManager.AddScore(50);
             }
 
-            //start->end로 이펙트가 이동하도록 설정
-            GameObject temp = Instantiate(sword, start, Quaternion.identity);
-            SwordMove moveObj = temp.AddComponent<SwordMove>();
-            moveObj.speed = speed;
-            moveObj.target = end;
+            {
+                //start->end로 이펙트가 이동하도록 설정
+                GameObject temp = Instantiate(swordEffect);
+                temp.transform.position = start;
+                SwordMove moveObj = temp.AddComponent<SwordMove>();
+                moveObj.speed = speed;
+                moveObj.target = end;
+            }
         }
 
     }

@@ -16,7 +16,8 @@ public class FlashGhost : GhostProperties
 
     PolygonCollider2D polygon;
 
-    Color c;
+    List<Color> color = new List<Color>();
+    SpriteRenderer[] sprites;
 
     public float triggerDist;
     public float castOffDist;
@@ -27,24 +28,31 @@ public class FlashGhost : GhostProperties
     {
         base.Init(ghost);
 
+        alphaTime = Random.Range(0, 1f);
         target = ghost.dir;
         polygon = ghost.GetComponent<PolygonCollider2D>();
-        c = ghost.GetComponent<SpriteRenderer>().color;
+        sprites = ghost.GetComponentsInChildren<SpriteRenderer>();
+
+        foreach (SpriteRenderer sp in sprites)
+            color.Add(sp.color);
         basicPos = ghost.transform.position;
     }
 
     public override void Move()
     {
-        if (Vector3.Distance(target, curPos) < 0.1f) return;
 
+        if (ghost.targetPos != -1)
+            target = SpawnningPool.Node[ghost.targetPos];
+        ghost.transform.position = Vector3.MoveTowards(ghost.transform.position, target, moveSpeed * Time.deltaTime);
 
-        if (Vector3.Distance(basicPos, curPos) < 1f && !isFlash)
-            ghost.transform.position = Vector3.MoveTowards(curPos, target, moveSpeed * Time.deltaTime);
-        else
-        {
-            isFlash = true;
-            Flash();
-        }
+        Flash();
+        //if (Vector3.Distance(basicPos, curPos) < 1f && !isFlash)
+        //    ghost.transform.position = Vector3.MoveTowards(curPos, target, moveSpeed * Time.deltaTime);
+        //else
+        //{
+        //    isFlash = true;
+        //    Flash();
+        //}
     }
 
     // public override IEnumerator Move()
@@ -75,24 +83,23 @@ public class FlashGhost : GhostProperties
     //     yield return null;
     // }
 
+    float alphaTime = 0;
+    float backAlphaValue = 1;
     public void Flash()
     {
-        ghost.GetComponent<SpriteRenderer>().color = c;
-
-        if (Vector3.Distance(basicPos, curPos) < castOffDist)
+        float alphaValue = (Mathf.Cos(alphaTime) + 1f) * 0.5f;
+        float mul = backAlphaValue - alphaValue < 0 ? 3 : 1f;
+        backAlphaValue = alphaValue;
+        alphaTime += Time.deltaTime* mul;
+        for (int i = 0; i < sprites.Length; i++)
         {
-            ghost.transform.position = Vector3.MoveTowards(curPos, target, moveSpeed * 2 * Time.deltaTime);
-            c = Color.Lerp(Color.white, Color.black, Mathf.PingPong(Time.time, 1));
+            Color c = color[i];
+            c.a = alphaValue;
+            color[i] = c;
+            sprites[i].color = c;
+        }
 
-            polygon.enabled = false;
-        }
-        else
-        {
-            ghost.SetBasicPosToProperties();
-            isFlash = false;
-            polygon.enabled = true;
-            Debug.Log("세상 속으로..");
-        }
+        polygon.enabled = alphaValue >= 0.2f;
     }
 
 

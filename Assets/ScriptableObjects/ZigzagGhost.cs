@@ -20,6 +20,9 @@ public class ZigzagGhost : GhostProperties
 
     public override void Move()
     {
+        if (ghost.targetPos != -1)
+            target = SpawnningPool.Node[ghost.targetPos];
+
         float yTwist = Vector2.right.x * Mathf.Abs(Mathf.Sin(Mathf.PingPong(Time.time, 1))) * magnitude;
 
         Vector2 basecampPos = new Vector3(ghost.transform.position.x, yTwist);

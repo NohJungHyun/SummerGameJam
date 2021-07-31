@@ -20,8 +20,6 @@ public class DeathZone : MonoBehaviour
         if (other.gameObject.GetComponentInParent<Ghost>())
         {
             Ghost ghost = other.gameObject.GetComponentInParent<Ghost>();
-            Debug.Log(ghost.name);
-
             SpawnningPool.spawnQueue.Enqueue(ghost);
             ghost.Die();
         }

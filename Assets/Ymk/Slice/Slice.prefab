@@ -43,5 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1abee3948beaab246adfdf3bb4673f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sword: {fileID: 6293074059673772981, guid: aff9571916328aa4c921a6c3dac3d95c, type: 3}
   speed: 0.05
+  swordEffect: {fileID: 6293074059673772981, guid: aff9571916328aa4c921a6c3dac3d95c, type: 3}

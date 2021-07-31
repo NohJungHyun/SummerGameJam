@@ -15,8 +15,9 @@ MonoBehaviour:
   ghost: {fileID: 0}
   takeCount: 1
   moveSpeed: 1
+  comboCount: 0
   moveEffect: {fileID: 0}
-  deadEffect: {fileID: 0}
+  deadEffect: {fileID: 7287567719240576002, guid: ed2f720d955808144ac75724e4a5440f, type: 3}
   curPos: {x: -0.072994374, y: -0.06551232}
   basicPos: {x: -1.3219465, y: -1.1864445}
   target: {x: 0, y: 0}

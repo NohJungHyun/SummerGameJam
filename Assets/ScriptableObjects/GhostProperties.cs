@@ -27,9 +27,10 @@ public abstract class GhostProperties : ScriptableObject
         
     }
 
-    public virtual void CallDeadEffect()
+    public virtual void CallDeadEffect(bool effect = false)
     {
-
+        if(effect)
+            Instantiate(deadEffect, curPos, Quaternion.identity);
     }
 
 }
