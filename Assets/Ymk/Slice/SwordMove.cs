@@ -17,4 +17,12 @@ public class SwordMove : MonoBehaviour
         if (Vector3.Distance(transform.position, target) < 0.001f)
             Destroy(gameObject);
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    Ghost ghost = collision.transform.GetComponent<Ghost>();
+    //    if (ghost == null)
+    //        return;
+    //    ghost.Die();
+    //}
 }
