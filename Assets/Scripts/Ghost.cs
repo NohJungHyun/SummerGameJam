@@ -11,13 +11,13 @@ public class Ghost : MonoBehaviour, IDamagable
 
     public int spawnPos = -1;
     public int targetPos = -1;
-    void Start() 
+    void Start()
     {
         ghostProperties = ScriptableObject.Instantiate(proto);
-        ghostProperties.Init(this);   
+        ghostProperties.Init(this);
     }
 
-    private void Update() 
+    private void Update()
     {
         ghostProperties.curPos = transform.position;
 
@@ -31,7 +31,11 @@ public class Ghost : MonoBehaviour, IDamagable
     private void Arrive()
     {
         if (Vector3.Distance(transform.position, dir) < 0.1f)
+        {
             Die();
+            ScoreManager.AddScore(ComboSystem.instance.paneltyNum);
+            BadNews.instance.InstanciateAlert();
+        }
     }
 
     public void SetBasicPosToProperties()
@@ -44,12 +48,10 @@ public class Ghost : MonoBehaviour, IDamagable
         Debug.Log("터치 성공!");
     }
 
-    public void Die(bool effect = false) 
+    public void Die(bool effect = false)
     {
         ghostProperties.CallDeadEffect(effect);
         SpawnningPool.spawnQueue.Enqueue(this);
-
-        ComboSystem.instance.IncreaseComboCount(transform.position, effect);
 
         this.gameObject.SetActive(false);
         spawnPos = -1;
@@ -73,6 +75,17 @@ public class Ghost : MonoBehaviour, IDamagable
     public void SetGhostProperties(GhostProperties p)
     {
         ghostProperties = p;
+    }
+
+    // 파티클 및 이펙트 보여주기
+    public IEnumerator CallBadNews()
+    {
+        while(true)
+        {
+            
+            yield return null;
+        }
+        
     }
 }
 

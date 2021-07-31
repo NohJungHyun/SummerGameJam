@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ComboSystem : MonoBehaviour
 {
     public int scorePerSkill;
+    public int paneltyNum;
 
     public Queue<Text> comboTextQueue;
     public static ComboSystem instance;

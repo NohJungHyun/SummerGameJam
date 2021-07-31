@@ -53,6 +53,8 @@ public class SpawnningPool : MonoBehaviour
         MakeGraph();
 
         TimeChecker.TimeOn += RankCheck;
+        
+        BadNews.SetAlertPos(new Vector2(horizontalSize, verticalSize));
     }
 
     private void MakeGraph()
