@@ -194,7 +194,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -324,7 +324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35ac421a38f16df41b2a998db5efb152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ghostProperties: {fileID: 11400000, guid: 506c0db78513e074daa9d95a51c10139, type: 2}
+  proto: {fileID: 11400000, guid: 99f3840c6f74cf24fa9962800813380c, type: 2}
+  dir: {x: 0, y: 0}
 --- !u!1 &3195401319520220380
 GameObject:
   m_ObjectHideFlags: 0

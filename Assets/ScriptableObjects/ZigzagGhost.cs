@@ -20,11 +20,12 @@ public class ZigzagGhost : GhostProperties
 
     public override void Move()
     {
-
-        ghost.transform.position = Vector2.MoveTowards(curPos, target, moveSpeed * Time.deltaTime);
         float yTwist = Vector2.right.x * Mathf.Abs(Mathf.Sin(Mathf.PingPong(Time.time, 1))) * magnitude;
 
-        ghost.transform.position = new Vector3(ghost.transform.position.x, yTwist);
+        Vector2 basecampPos = new Vector3(ghost.transform.position.x, yTwist);
+        ghost.transform.position = Vector2.MoveTowards(basecampPos, target, moveSpeed * Time.deltaTime);
+        
+        
     }
 
     // public override IEnumerator Move()

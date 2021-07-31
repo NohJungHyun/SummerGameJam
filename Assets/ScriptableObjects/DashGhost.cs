@@ -24,7 +24,7 @@ public class DashGhost : GhostProperties
         base.Init(ghost);
         target = ghost.dir;
         ghost.SetBasicPosToProperties();
-        color = ghost.GetComponent<SpriteRenderer>().color;
+        color = ghost.GetComponentInChildren<SpriteRenderer>().color;
     }
 
     // public override void Move()

@@ -6,7 +6,7 @@ public class Ghost : MonoBehaviour, IDamagable
 {
     // [SerializeField]
     public GhostProperties proto;
-    public GhostProperties ghostProperties;
+    GhostProperties ghostProperties;
     public Vector2 dir;
 
     void Start() 
@@ -35,6 +35,8 @@ public class Ghost : MonoBehaviour, IDamagable
     public void Die() 
     {
         ghostProperties.CallDeadEffect();
+        ComboSystem.instance.IncreaseComboCount(ghostProperties.comboCount);
+
         this.gameObject.SetActive(false);
     }
 
