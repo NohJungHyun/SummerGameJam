@@ -53,7 +53,7 @@ public class SpawnningPool : MonoBehaviour
         MakeGraph();
 
         TimeChecker.TimeOn += RankCheck;
-        
+
         BadNews.SetAlertPos(new Vector2(horizontalSize, verticalSize));
     }
 
@@ -129,7 +129,7 @@ public class SpawnningPool : MonoBehaviour
             {
                 if (curGhostNum < minGhostNum * 0.5f)
                     yield return new WaitForSeconds(Random.Range(minSpawnTime * 0.25f, maxSpawnTime * 0.25f));
-                else if(curGhostNum < minGhostNum)
+                else if (curGhostNum < minGhostNum)
                     yield return new WaitForSeconds(Random.Range(minSpawnTime * 0.5f, maxSpawnTime * 0.5f));
                 else
                     yield return new WaitForSeconds(Random.Range(minSpawnTime, maxSpawnTime));
@@ -137,7 +137,7 @@ public class SpawnningPool : MonoBehaviour
                 Ghost obj = spawnQueue.Dequeue();
 
                 int startNode = spawnPos[Random.Range(0, spawnPos.Count)];
-                
+
                 int endNode = V[startNode][Random.Range(0, V[startNode].Count)];
 
                 obj.spawnPos = startNode;
@@ -157,7 +157,7 @@ public class SpawnningPool : MonoBehaviour
         int randGhost = Random.Range(0, ghosts.Count);
 
         Ghost ghostInst = GameObject.Instantiate(ghosts[randGhost]);
-        
+
         ghostInst.transform.SetParent(spawnerParent);
         spawnQueue.Enqueue(ghostInst.GetComponent<Ghost>());
         ghostInst.gameObject.SetActive(false);
@@ -172,15 +172,19 @@ public class SpawnningPool : MonoBehaviour
         RankUpGhost(table.fastGhostSpeedTable);
         RankUpGhost(table.normalGhostSpeedTable);
 
-        for(int idx = 0; idx < spawnThrehold; idx++)
+        if (difficulty < 3)
         {
-            CreateGhost();
+            for (int idx = 0; idx < spawnThrehold; idx++)
+            {
+                CreateGhost();
+            }
         }
+
     }
 
     public void RankUp(List<float> _minSpawn, List<float> _maxSpawn, List<float> _minSpawnTime, List<float> _maxSpawnTime)
     {
-        if(_minSpawn.Count -1 < difficulty) return;
+        if (_minSpawn.Count - 1 < difficulty) return;
 
         minGhostNum = (int)_minSpawn[difficulty];
         maxGhostNum = (int)_maxSpawn[difficulty];
@@ -191,16 +195,16 @@ public class SpawnningPool : MonoBehaviour
 
     public void RankUpGhost(StageGhostImprovement improvement)
     {
-        if(improvement.ghosts.Count -1 < difficulty) return;
+        if (improvement.ghosts.Count - 1 < difficulty) return;
 
-        for(int i = 0; i < improvement.ghosts.Count; i++)
+        for (int i = 0; i < improvement.ghosts.Count; i++)
         {
-            for(int j = 0; j< ghosts.Count; j++)
+            for (int j = 0; j < ghosts.Count; j++)
             {
                 print(improvement.ghosts[i].Equals(ghosts[j]));
                 print(improvement.elementImprovementNum[difficulty]);
 
-                if(improvement.ghosts[i].Equals(ghosts[j]))
+                if (improvement.ghosts[i].Equals(ghosts[j]))
                 {
                     print(ghosts[j]);
                     ghosts[j].SetGhostProperties(ghosts[j].proto);
@@ -212,7 +216,7 @@ public class SpawnningPool : MonoBehaviour
                 }
             }
         }
-        
+
         // if(improvement.ghosts.Count <= 0 || improvement.ghosts.Count - 1 < difficulty) return;
 
         // for(int i = 0; i < improvement.ghosts.Count; i++)

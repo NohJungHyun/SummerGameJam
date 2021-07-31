@@ -267,6 +267,11 @@ Transform:
   m_Father: {fileID: 2038580059}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &220846120 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2117903234552158308, guid: 10648e9e2d1afb24ba31a3e145442f96, type: 3}
+  m_PrefabInstance: {fileID: 1964407290}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &278204411
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,6 +965,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missParticle: {fileID: 5176348176575819615, guid: d7055896bc5f70e46a09de1cdd918a6c, type: 3}
+  ui: {fileID: 220846120}
+  shakeMagnitude: 5
+  shakeTime: 2
 --- !u!4 &1471410780
 Transform:
   m_ObjectHideFlags: 0

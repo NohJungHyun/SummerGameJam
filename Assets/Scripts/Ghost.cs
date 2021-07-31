@@ -34,7 +34,8 @@ public class Ghost : MonoBehaviour, IDamagable
         {
             Die();
             ScoreManager.AddScore(ComboSystem.instance.paneltyNum);
-            BadNews.instance.InstanciateAlert();
+            
+            BadNews.instance.badDelegate?.Invoke();
         }
     }
 
@@ -53,7 +54,7 @@ public class Ghost : MonoBehaviour, IDamagable
         ghostProperties.CallDeadEffect(effect);
         SpawnningPool.spawnQueue.Enqueue(this);
 
-        ComboSystem.instance.IncreaseComboCount(transform.position, true);
+        ComboSystem.instance.IncreaseComboCount(transform.position, effect);
 
         this.gameObject.SetActive(false);
         spawnPos = -1;
