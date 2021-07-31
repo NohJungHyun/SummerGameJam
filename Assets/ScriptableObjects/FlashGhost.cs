@@ -16,7 +16,8 @@ public class FlashGhost : GhostProperties
 
     PolygonCollider2D polygon;
 
-    Color c;
+    List<Color> c = new List<Color>();
+    SpriteRenderer[] sprites;
 
     public float triggerDist;
     public float castOffDist;
@@ -29,7 +30,10 @@ public class FlashGhost : GhostProperties
 
         target = ghost.dir;
         polygon = ghost.GetComponent<PolygonCollider2D>();
-        c = ghost.GetComponent<SpriteRenderer>().color;
+        sprites = ghost.GetComponentsInChildren<SpriteRenderer>();
+
+        foreach (SpriteRenderer sp in sprites)
+            c.Add(sp.color);
         basicPos = ghost.transform.position;
     }
 
@@ -77,21 +81,24 @@ public class FlashGhost : GhostProperties
 
     public void Flash()
     {
-        ghost.GetComponent<SpriteRenderer>().color = c;
-
-        if (Vector3.Distance(basicPos, curPos) < castOffDist)
+        for (int i = 0; i < sprites.Length; i++)
         {
-            ghost.transform.position = Vector3.MoveTowards(curPos, target, moveSpeed * 2 * Time.deltaTime);
-            c = Color.Lerp(Color.white, Color.black, Mathf.PingPong(Time.time, 1));
+            sprites[i].color = c[i];
 
-            polygon.enabled = false;
-        }
-        else
-        {
-            ghost.SetBasicPosToProperties();
-            isFlash = false;
-            polygon.enabled = true;
-            Debug.Log("세상 속으로..");
+            if (Vector3.Distance(basicPos, curPos) < castOffDist)
+            {
+                ghost.transform.position = Vector3.MoveTowards(curPos, target, moveSpeed * 2 * Time.deltaTime);
+                c[i] = Color.Lerp(Color.white, Color.black, Mathf.PingPong(Time.time, 1));
+
+                polygon.enabled = false;
+            }
+            else
+            {
+                ghost.SetBasicPosToProperties();
+                isFlash = false;
+                polygon.enabled = true;
+                Debug.Log("세상 속으로..");
+            }
         }
     }
 

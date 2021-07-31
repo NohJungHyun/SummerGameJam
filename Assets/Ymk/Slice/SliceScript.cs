@@ -38,7 +38,9 @@ public class SliceScript : MonoBehaviour
                 if (ghost == null)
                     continue;
                 ghost.Die();
+            ScoreManager.AddScore(50);
             }
+
 
             //start->end로 이펙트가 이동하도록 설정
             GameObject temp = Instantiate(sword, start, Quaternion.identity);
