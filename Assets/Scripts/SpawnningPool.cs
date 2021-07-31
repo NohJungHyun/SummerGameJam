@@ -56,13 +56,14 @@ public class SpawnningPool : MonoBehaviour
     private void MakeGraph()
     {
         Node.Clear();
-        for (int i = 1; i >= -1; i-=2)
-        {
-            Node.Add(new Vector2(horizontalSize * +0.5f, verticalSize * +1.2f) * i);
-            Node.Add(new Vector2(horizontalSize * +1.2f, verticalSize * +0.5f) * i);
-            Node.Add(new Vector2(horizontalSize * +1.2f, verticalSize * -0.5f) * i);
-            Node.Add(new Vector2(horizontalSize * +0.5f, verticalSize * -1.2f) * i);
-        }
+        Node.Add(new Vector2(horizontalSize * +0.5f, verticalSize * +1.2f));
+        Node.Add(new Vector2(horizontalSize * +1f, verticalSize * +0.5f));
+        Node.Add(new Vector2(horizontalSize * +1f, verticalSize * -0.5f));
+        Node.Add(new Vector2(horizontalSize * +0.5f, verticalSize * -1.2f));
+        Node.Add(new Vector2(horizontalSize * -0.5f, verticalSize * -1f));
+        Node.Add(new Vector2(horizontalSize * -1f, verticalSize * -0.5f));
+        Node.Add(new Vector2(horizontalSize * -1.2f, verticalSize * +0.5f));
+        Node.Add(new Vector2(horizontalSize * -0.5f, verticalSize * +1.2f));
 
         for (int i = 0; i < 8; i++)
             V[i] = new List<int>();
