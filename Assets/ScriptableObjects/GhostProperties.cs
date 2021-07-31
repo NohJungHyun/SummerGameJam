@@ -29,7 +29,7 @@ public abstract class GhostProperties : ScriptableObject
 
     public virtual void CallDeadEffect()
     {
-
+        Instantiate(deadEffect, curPos, Quaternion.identity);
     }
 
 }

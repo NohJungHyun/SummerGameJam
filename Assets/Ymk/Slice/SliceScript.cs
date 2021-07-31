@@ -10,7 +10,7 @@ public class SliceScript : MonoBehaviour
     [Range(0.001f, 1)]
     public float speed;
 
-    private float effectTime = 0;
+    public GameObject swordEffect;
 
     private void Update()
     {
@@ -24,7 +24,6 @@ public class SliceScript : MonoBehaviour
         else if (Input.GetMouseButtonUp(0))
         {
             end = mouse;
-            effectTime = 0.1f;
             Vector3 center = (end + start) / 2;
             Vector3 dir = (end - start).normalized;
 
@@ -38,13 +37,11 @@ public class SliceScript : MonoBehaviour
                     continue;
                 ghost.Die();
                 ScoreManager.AddScore(50);
-                GameObject temp = EffectManager.RunEffect(EffectManager.Effect.BOOM_GHOST);
-                temp.transform.position = ghost.transform.position;
             }
 
             {
                 //start->end로 이펙트가 이동하도록 설정
-                GameObject temp = EffectManager.RunEffect(EffectManager.Effect.SLASH_SWORD);
+                GameObject temp = Instantiate(swordEffect);
                 temp.transform.position = start;
                 SwordMove moveObj = temp.AddComponent<SwordMove>();
                 moveObj.speed = speed;

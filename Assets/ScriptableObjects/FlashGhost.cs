@@ -16,7 +16,7 @@ public class FlashGhost : GhostProperties
 
     PolygonCollider2D polygon;
 
-    List<Color> c = new List<Color>();
+    List<Color> color = new List<Color>();
     SpriteRenderer[] sprites;
 
     public float triggerDist;
@@ -33,22 +33,25 @@ public class FlashGhost : GhostProperties
         sprites = ghost.GetComponentsInChildren<SpriteRenderer>();
 
         foreach (SpriteRenderer sp in sprites)
-            c.Add(sp.color);
+            color.Add(sp.color);
         basicPos = ghost.transform.position;
     }
 
     public override void Move()
     {
-        if (Vector3.Distance(target, curPos) < 0.1f) return;
 
+        if (ghost.targetPos != -1)
+            target = SpawnningPool.Node[ghost.targetPos];
+        ghost.transform.position = Vector3.MoveTowards(ghost.transform.position, target, moveSpeed * Time.deltaTime);
 
-        if (Vector3.Distance(basicPos, curPos) < 1f && !isFlash)
-            ghost.transform.position = Vector3.MoveTowards(curPos, target, moveSpeed * Time.deltaTime);
-        else
-        {
-            isFlash = true;
-            Flash();
-        }
+        Flash();
+        //if (Vector3.Distance(basicPos, curPos) < 1f && !isFlash)
+        //    ghost.transform.position = Vector3.MoveTowards(curPos, target, moveSpeed * Time.deltaTime);
+        //else
+        //{
+        //    isFlash = true;
+        //    Flash();
+        //}
     }
 
     // public override IEnumerator Move()
@@ -79,27 +82,20 @@ public class FlashGhost : GhostProperties
     //     yield return null;
     // }
 
+    float alphaTime = 0;
     public void Flash()
     {
+        alphaTime += Time.deltaTime*2f;
+        float alphaValue = (Mathf.Cos(alphaTime) + 1f) * 0.5f;
         for (int i = 0; i < sprites.Length; i++)
         {
-            sprites[i].color = c[i];
-
-            if (Vector3.Distance(basicPos, curPos) < castOffDist)
-            {
-                ghost.transform.position = Vector3.MoveTowards(curPos, target, moveSpeed * 2 * Time.deltaTime);
-                c[i] = Color.Lerp(Color.white, Color.black, Mathf.PingPong(Time.time, 1));
-
-                polygon.enabled = false;
-            }
-            else
-            {
-                ghost.SetBasicPosToProperties();
-                isFlash = false;
-                polygon.enabled = true;
-                Debug.Log("세상 속으로..");
-            }
+            Color c = color[i];
+            c.a = alphaValue;
+            color[i] = c;
+            sprites[i].color = c;
         }
+
+        polygon.enabled = alphaValue >= 0.2f;
     }
 
 
