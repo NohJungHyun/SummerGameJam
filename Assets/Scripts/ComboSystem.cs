@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class ComboSystem : MonoBehaviour
 {
+    public Queue<Text> comboTextQueue;
     public static ComboSystem instance;
 
     public ParticleSystem encourageParticle;
+    public Canvas comboTextCanvas;
     public Text comboText;
+    public Vector2 particlePos;
+    Color basicColor;
     // public ScoreManager scoreManager;
 
 
@@ -21,6 +25,11 @@ public class ComboSystem : MonoBehaviour
 
     public int comboCount;
 
+    public float fadeoutModifier;
+    public float deleteParticleTime;
+
+    IEnumerator coroutine;
+
     private void Awake()
     {
         instance = this;
@@ -28,6 +37,19 @@ public class ComboSystem : MonoBehaviour
 
     void Start()
     {
+        basicColor = comboText.color;
+
+        comboTextQueue = new Queue<Text>(30);
+
+        for (int i = 0; i < 30; i++)
+        {
+            Text obj = GameObject.Instantiate(comboText, new Vector2(100,100), Quaternion.identity);
+            obj.transform.SetParent(comboTextCanvas.transform);
+
+            obj.gameObject.SetActive(false);
+            comboTextQueue.Enqueue(obj);
+        }
+
         InitCombo();
     }
 
@@ -37,7 +59,6 @@ public class ComboSystem : MonoBehaviour
 
         if (remainComboTime < 0)
             InitCombo();
-        
     }
 
     public void IncreaseComboCount(Vector2 ghostDiePos, bool isCatched)
@@ -50,19 +71,63 @@ public class ComboSystem : MonoBehaviour
             if (comboCount > 2)
             {
                 CallEncourageEffect(ghostDiePos);
-                comboText.text = comboCount.ToString() + "Hit!";
 
-                if (comboCount >= 10)
-                    additionalScore = comboCount;
-                
+                if (comboCount > 10)
+                    additionalScore = (int)(comboCount * 0.1) * 10;
             }
         }
     }
 
     public void CallEncourageEffect(Vector2 diePos)
     {
-        encourageParticle.transform.position = diePos;
-        encourageParticle.Play();
+        Text calledText = comboTextQueue.Dequeue();
+        calledText.gameObject.SetActive(true);
+        calledText.text = comboCount.ToString() + "Hit!";
+        calledText.transform.position = Camera.main.WorldToScreenPoint(diePos);
+
+        Vector2 vec = new Vector2(0, -5);
+        ParticleSystem p = GameObject.Instantiate(encourageParticle, particlePos, Quaternion.identity).GetComponent<ParticleSystem>();
+
+        StartCoroutine(FadeOutText(calledText));
+        StartCoroutine(DeleteParticle(p));
+
+        Debug.Log(p.transform.position);
+    }
+
+    public IEnumerator FadeOutText(Text t)
+    {
+        while (true)
+        {
+            if (t.color.a > 0.1)
+            {
+                Debug.Log("해방이다!");
+                Color fadeOutColor = new Color(0, 0, 0, 0.1f);
+                t.color -= fadeOutColor * fadeoutModifier;
+            }
+            else
+            {
+                ReturnToQueue(t);
+                yield break;
+            }
+            yield return Time.deltaTime;
+        }
+    }
+
+    public IEnumerator DeleteParticle(ParticleSystem _p)
+    {
+        while(true)
+        {
+            deleteParticleTime += Time.deltaTime;
+            if(deleteParticleTime > 3f)
+            {
+                Destroy(_p.gameObject);
+                deleteParticleTime = 0;
+                yield break;
+            }
+                
+            yield return Time.deltaTime;
+        }
+        
     }
 
     public void InitCombo()
@@ -70,5 +135,12 @@ public class ComboSystem : MonoBehaviour
         comboCount = 0;
         remainComboTime = 0;
         additionalScore = 0;
+    }
+
+    public void ReturnToQueue(Text t)
+    {
+        t.gameObject.SetActive(false);
+        t.color = basicColor;
+        comboTextQueue.Enqueue(t);
     }
 }
