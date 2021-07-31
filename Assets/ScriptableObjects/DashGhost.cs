@@ -5,7 +5,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Ghost", menuName = "SummerGameJam/DashGhost", order = 1)]
 public class DashGhost : GhostProperties
 {
-    public float shortDist, longDist;
+
+
+    [Header("보통이동거리")]
+    [Header("------------------------")]
+    public float shortDist;
+
+    [Header("대쉬이동거리")]
+    public float longDist;
+
+    [Header("대쉬동안가속도")]
     public float moveAmplified;
 
     Color color;
@@ -67,7 +76,7 @@ public class DashGhost : GhostProperties
         {
             if (Vector3.Distance(basicPos, curPos) < longDist)
             {
-                ghost.transform.position = Vector3.MoveTowards(curPos, target, moveSpeed * 2 * Time.deltaTime);
+                ghost.transform.position = Vector3.MoveTowards(curPos, target, moveSpeed * moveAmplified * Time.deltaTime);
             }
             else
             {

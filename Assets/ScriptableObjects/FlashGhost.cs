@@ -11,7 +11,14 @@ public class FlashGhost : GhostProperties
 
     // // 투명화 시간을 체크하는 데 사용.
     // public float checkTime;
+    [Header("사라지는 속도")]
+    [Header("------------------------")]
+    public float hideValue;
 
+    [Header("나타나는 속도")]
+    public float showValue;
+
+    [HideInInspector]
     public float moveAmplified;
 
     PolygonCollider2D polygon;
@@ -19,9 +26,11 @@ public class FlashGhost : GhostProperties
     List<Color> color = new List<Color>();
     SpriteRenderer[] sprites;
 
+    [HideInInspector]
     public float triggerDist;
+    [HideInInspector]
     public float castOffDist;
-
+    [HideInInspector]
     public bool isFlash = false;
 
     public override void Init(Ghost ghost)
@@ -88,7 +97,7 @@ public class FlashGhost : GhostProperties
     public void Flash()
     {
         float alphaValue = (Mathf.Cos(alphaTime) + 1f) * 0.5f;
-        float mul = backAlphaValue - alphaValue < 0 ? 3 : 1f;
+        float mul = backAlphaValue - alphaValue < 0 ? hideValue : showValue;
         backAlphaValue = alphaValue;
         alphaTime += Time.deltaTime* mul;
         for (int i = 0; i < sprites.Length; i++)
