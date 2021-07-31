@@ -10,6 +10,7 @@ public class TimerScript : MonoBehaviour
     private void Awake()
     {
         slider = GetComponent<Slider>();
+        GameOver.gameEnd = false;
     }
 
     public GameObject gameOver;

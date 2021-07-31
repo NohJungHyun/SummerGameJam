@@ -12,7 +12,6 @@ public abstract class GhostProperties : ScriptableObject
 
     public ParticleSystem moveEffect;
     public ParticleSystem deadEffect;
-
     public Vector2 curPos, basicPos, target;
 
     public int ghostScore;
@@ -32,7 +31,10 @@ public abstract class GhostProperties : ScriptableObject
     public virtual void CallDeadEffect(bool effect = false)
     {
         if(effect)
+        {
             Instantiate(deadEffect, curPos, Quaternion.identity);
+            
+        }
     }
 
     public virtual void RankUp()

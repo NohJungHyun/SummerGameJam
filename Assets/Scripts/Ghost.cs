@@ -53,7 +53,7 @@ public class Ghost : MonoBehaviour, IDamagable
         ghostProperties.CallDeadEffect(effect);
         SpawnningPool.spawnQueue.Enqueue(this);
 
-        ComboSystem.instance.IncreaseComboCount(transform.position, true);
+        ComboSystem.instance.IncreaseComboCount(transform.position, effect);
 
         this.gameObject.SetActive(false);
         spawnPos = -1;
