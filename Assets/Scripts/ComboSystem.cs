@@ -87,11 +87,10 @@ public class ComboSystem : MonoBehaviour
 
         Vector2 vec = new Vector2(0, -5);
         ParticleSystem p = GameObject.Instantiate(encourageParticle, particlePos, Quaternion.identity).GetComponent<ParticleSystem>();
+        p.gameObject.SetActive(true);
 
         StartCoroutine(FadeOutText(calledText));
-        StartCoroutine(DeleteParticle(p));
-
-        Debug.Log(p.transform.position);
+        StartCoroutine(DeleteParticle(p.gameObject));
     }
 
     public IEnumerator FadeOutText(Text t)
@@ -113,17 +112,19 @@ public class ComboSystem : MonoBehaviour
         }
     }
 
-    public IEnumerator DeleteParticle(ParticleSystem _p)
+    public IEnumerator DeleteParticle(GameObject obj)
     {
         while(true)
         {
             deleteParticleTime += Time.deltaTime;
-            if(deleteParticleTime > 3f)
+            if(deleteParticleTime > 2f && obj)
             {
-                Destroy(_p.gameObject);
+                Destroy(obj);
                 deleteParticleTime = 0;
                 yield break;
             }
+            if(!obj)
+                yield break;
                 
             yield return Time.deltaTime;
         }

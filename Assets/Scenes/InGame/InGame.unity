@@ -810,7 +810,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1307,87 +1307,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &8722478687665679967
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8722478687822321136, guid: 8785387db29203846b3138c6fc30b854, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8722478687822321136, guid: 8785387db29203846b3138c6fc30b854, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8722478687822321136, guid: 8785387db29203846b3138c6fc30b854, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8722478687822321136, guid: 8785387db29203846b3138c6fc30b854, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8722478687822321136, guid: 8785387db29203846b3138c6fc30b854, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8722478687822321136, guid: 8785387db29203846b3138c6fc30b854, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8722478687822321136, guid: 8785387db29203846b3138c6fc30b854, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8722478687822321136, guid: 8785387db29203846b3138c6fc30b854, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8722478687822321136, guid: 8785387db29203846b3138c6fc30b854, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8722478687822321136, guid: 8785387db29203846b3138c6fc30b854, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8722478687822321136, guid: 8785387db29203846b3138c6fc30b854, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8722478687822321137, guid: 8785387db29203846b3138c6fc30b854, type: 3}
-      propertyPath: comboText
-      value: 
-      objectReference: {fileID: 4373289809458845850, guid: 302e62d4b2e0f274fa28e24c3f3a0dd4, type: 3}
-    - target: {fileID: 8722478687822321137, guid: 8785387db29203846b3138c6fc30b854, type: 3}
-      propertyPath: particlePos.y
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8722478687822321137, guid: 8785387db29203846b3138c6fc30b854, type: 3}
-      propertyPath: comboTextCanvas
-      value: 
-      objectReference: {fileID: 1321132248}
-    - target: {fileID: 8722478687822321137, guid: 8785387db29203846b3138c6fc30b854, type: 3}
-      propertyPath: fadeoutModifier
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 8722478687822321137, guid: 8785387db29203846b3138c6fc30b854, type: 3}
-      propertyPath: encourageParticle
-      value: 
-      objectReference: {fileID: 2653372246757637448, guid: b97679274ace82d489b5b90974f13134, type: 3}
-    - target: {fileID: 8722478687822321137, guid: 8785387db29203846b3138c6fc30b854, type: 3}
-      propertyPath: deleteParticleTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8722478687822321138, guid: 8785387db29203846b3138c6fc30b854, type: 3}
-      propertyPath: m_Name
-      value: Combo
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8785387db29203846b3138c6fc30b854, type: 3}
 --- !u!1001 &9125449112028301187
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1395,6 +1314,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6074062143942457205, guid: 23f55cf4f8b519b4a8ee4eb40f916de5, type: 3}
+      propertyPath: comboTextCanvas
+      value: 
+      objectReference: {fileID: 1321132248}
     - target: {fileID: 9125449111491842580, guid: 23f55cf4f8b519b4a8ee4eb40f916de5, type: 3}
       propertyPath: m_Name
       value: Slice
