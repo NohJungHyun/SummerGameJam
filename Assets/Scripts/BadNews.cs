@@ -55,7 +55,7 @@ public class BadNews : MonoBehaviour
     {
         remainTime = 0;
 
-        while (true)
+        while (!GameOver.gameEnd)
         {
             Debug.Log(remainTime);
 
