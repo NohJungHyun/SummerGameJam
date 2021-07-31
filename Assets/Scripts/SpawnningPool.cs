@@ -146,29 +146,6 @@ public class SpawnningPool : MonoBehaviour
                 obj.transform.position = Node[startNode];
                 obj.SetDirection(Node[endNode]);
 
-                //switch (randWall)
-                //{
-                //    case 0: //왼벽 -> 오른벽
-                //        obj.transform.position = new Vector2(-horizontalSize - offset, randY);
-                //        obj.SetDirection(SetDestinationToGhost(false, 0));
-                //        break;
-
-                //    case 1: //오른벽 -> 왼벽
-                //        obj.transform.position = new Vector2(horizontalSize + offset, randY);
-                //        obj.SetDirection(SetDestinationToGhost(false, 1));
-                //        break;
-
-                //    case 2: //윗벽 -> 아랫벽
-                //        obj.transform.position = new Vector2(randX, -verticalSize - offset);
-                //        obj.SetDirection(SetDestinationToGhost(true, 0));
-                //        break;
-
-                //    case 3: //아랫벽 -> 윗벽
-                //        obj.transform.position = new Vector2(randX, verticalSize + offset);
-                //        obj.SetDirection(SetDestinationToGhost(true, 1));
-                //        break;
-                //}
-
                 obj.gameObject.SetActive(true);
                 curGhostNum++;
             }
@@ -176,45 +153,69 @@ public class SpawnningPool : MonoBehaviour
         }
     }
 
-    Vector3 SetDestinationToGhost(bool isHorizontal, int idx)
-    {
-        float num = 0;
-        Vector2 vec = Vector2.one;
 
-        // 수평인가? 즉, top, bottom인가?
-        if (isHorizontal)
-        {
-            num = Random.Range(-horizontalSize, horizontalSize) * 0.5f;
+    //switch (randWall)
+    //{
+    //    case 0: //왼벽 -> 오른벽
+    //        obj.transform.position = new Vector2(-horizontalSize - offset, randY);
+    //        obj.SetDirection(SetDestinationToGhost(false, 0));
+    //        break;
 
-            if (idx == 0) //위
-                vec = new Vector3(num, verticalSize + offset);
-            else
-                vec = new Vector3(num, -verticalSize - offset);
+    //    case 1: //오른벽 -> 왼벽
+    //        obj.transform.position = new Vector2(horizontalSize + offset, randY);
+    //        obj.SetDirection(SetDestinationToGhost(false, 1));
+    //        break;
 
-        }
-        else
-        {
-            num = Random.Range(-verticalSize, verticalSize);
+    //    case 2: //윗벽 -> 아랫벽
+    //        obj.transform.position = new Vector2(randX, -verticalSize - offset);
+    //        obj.SetDirection(SetDestinationToGhost(true, 0));
+    //        break;
 
-            if (idx == 0) //오른쪽
-                vec = new Vector3(horizontalSize + offset, num); //horizontalSize
-            else
-                vec = new Vector3(-horizontalSize - offset, num);
-        }
+    //    case 3: //아랫벽 -> 윗벽
+    //        obj.transform.position = new Vector2(randX, verticalSize + offset);
+    //        obj.SetDirection(SetDestinationToGhost(true, 1));
+    //        break;
+    //}
 
-        return vec;
-    }
+    // Vector3 SetDestinationToGhost(bool isHorizontal, int idx)
+    // {
+    //     float num = 0;
+    //     Vector2 vec = Vector2.one;
 
-    public void AssembleEmergency()
-    {
-        if (curGhostNum < minGhostNum)
-        {
-            for(int i = 0; i < ememrgencyCallNum; i++)
-            {
-                CreateGhost();
-            }
-        }
-    }
+    //     // 수평인가? 즉, top, bottom인가?
+    //     if (isHorizontal)
+    //     {
+    //         num = Random.Range(-horizontalSize, horizontalSize) * 0.5f;
+
+    //         if (idx == 0) //위
+    //             vec = new Vector3(num, verticalSize + offset);
+    //         else
+    //             vec = new Vector3(num, -verticalSize - offset);
+
+    //     }
+    //     else
+    //     {
+    //         num = Random.Range(-verticalSize, verticalSize);
+
+    //         if (idx == 0) //오른쪽
+    //             vec = new Vector3(horizontalSize + offset, num); //horizontalSize
+    //         else
+    //             vec = new Vector3(-horizontalSize - offset, num);
+    //     }
+
+    //     return vec;
+    // }
+
+    // public void AssembleEmergency()
+    // {
+    //     if (curGhostNum < minGhostNum)
+    //     {
+    //         for(int i = 0; i < ememrgencyCallNum; i++)
+    //         {
+    //             CreateGhost();
+    //         }
+    //     }
+    // }
 
     public void CreateGhost()
     {

@@ -807,9 +807,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7091b0e66be2fdf4287702d816d83ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coninousComboTime: 0
+  encourageParticle: {fileID: 0}
+  comboText: {fileID: 0}
+  coninousComboTime: 3
   remainComboTime: 0
-  scoreMultiplier: 0
+  additionalScore: 0
+  comboCount: 0
 --- !u!4 &1068170159
 Transform:
   m_ObjectHideFlags: 0

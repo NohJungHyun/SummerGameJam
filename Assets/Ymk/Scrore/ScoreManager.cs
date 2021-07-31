@@ -24,7 +24,8 @@ public class ScoreManager : MonoBehaviour
     public static void AddScore(int n)
     {
         int now = int.Parse(instance.text.text);
-        now += n;
+        now += n + ComboSystem.instance.additionalScore;
+        
         instance.animator.SetTrigger("Run");
         instance.text.text = string.Format("{0:D6}", now);
     }

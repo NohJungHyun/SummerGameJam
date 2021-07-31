@@ -27,7 +27,7 @@ public class SliceScript : MonoBehaviour
             Vector3 center = (end + start) / 2;
             Vector3 dir = (end - start).normalized;
 
-            //°ø°Ý
+            //ï¿½ï¿½ï¿½ï¿½
             RaycastHit2D[] raycastHit2D = Physics2D.BoxCastAll(center, new Vector3(Vector3.Distance(start, end), 0.5f, 1), Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg, Vector2.zero, 10, 1 << LayerMask.NameToLayer("Ghost")); 
 
             foreach (RaycastHit2D hit in raycastHit2D)
@@ -40,7 +40,7 @@ public class SliceScript : MonoBehaviour
             }
 
             {
-                //start->end·Î ÀÌÆåÆ®°¡ ÀÌµ¿ÇÏµµ·Ï ¼³Á¤
+                //start->endï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 GameObject temp = Instantiate(swordEffect);
                 temp.transform.position = start;
                 SwordMove moveObj = temp.AddComponent<SwordMove>();
