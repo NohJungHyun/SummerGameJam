@@ -6,7 +6,6 @@ public class SliceScript : MonoBehaviour
 {
     private Vector3 start;
     private Vector3 end;
-    public GameObject sword;
 
     [Range(0.001f, 1)]
     public float speed;
@@ -38,15 +37,19 @@ public class SliceScript : MonoBehaviour
                 if (ghost == null)
                     continue;
                 ghost.Die();
-            ScoreManager.AddScore(50);
+                ScoreManager.AddScore(50);
+                GameObject temp = EffectManager.RunEffect(EffectManager.Effect.BOOM_GHOST);
+                temp.transform.position = ghost.transform.position;
             }
 
-
-            //start->end로 이펙트가 이동하도록 설정
-            GameObject temp = Instantiate(sword, start, Quaternion.identity);
-            SwordMove moveObj = temp.AddComponent<SwordMove>();
-            moveObj.speed = speed;
-            moveObj.target = end;
+            {
+                //start->end로 이펙트가 이동하도록 설정
+                GameObject temp = EffectManager.RunEffect(EffectManager.Effect.SLASH_SWORD);
+                temp.transform.position = start;
+                SwordMove moveObj = temp.AddComponent<SwordMove>();
+                moveObj.speed = speed;
+                moveObj.target = end;
+            }
         }
 
     }
