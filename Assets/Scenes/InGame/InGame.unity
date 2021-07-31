@@ -1093,8 +1093,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missParticle: {fileID: 5176348176575819615, guid: d7055896bc5f70e46a09de1cdd918a6c, type: 3}
   ui: {fileID: 220846120}
-  shakeMagnitude: 1000
-  shakeTime: 1
+  shakeMagnitude: 500
+  shakeTime: 0.5
 --- !u!4 &1471410780
 Transform:
   m_ObjectHideFlags: 0

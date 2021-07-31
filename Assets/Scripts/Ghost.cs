@@ -19,13 +19,21 @@ public class Ghost : MonoBehaviour, IDamagable
 
     private void Update()
     {
-        ghostProperties.curPos = transform.position;
+        if (GameOver.gameEnd)
+        {
+            SpawnningPool.spawnQueue.Enqueue(this);
+            this.gameObject.SetActive(false);
+        }
+        else
+        {
+            ghostProperties.curPos = transform.position;
 
-        ghostProperties.Move();
+            ghostProperties.Move();
 
-        print(this.name + "있니?: " + GetGhostProperties());
+            print(this.name + "있니?: " + GetGhostProperties());
 
-        Arrive();
+            Arrive();
+        }
     }
 
     private void Arrive()
@@ -35,7 +43,7 @@ public class Ghost : MonoBehaviour, IDamagable
             Die();
             ScoreManager.AddScore(ComboSystem.instance.paneltyNum);
             ComboSystem.instance.remainComboTime = 0;
-            BadNews.instance. badDelegate?.Invoke();
+            BadNews.instance.badDelegate?.Invoke();
         }
     }
 
@@ -83,12 +91,11 @@ public class Ghost : MonoBehaviour, IDamagable
     // 파티클 및 이펙트 보여주기
     public IEnumerator CallBadNews()
     {
-        while(true)
+        while (true)
         {
-            
+
             yield return null;
         }
-        
     }
 }
 
