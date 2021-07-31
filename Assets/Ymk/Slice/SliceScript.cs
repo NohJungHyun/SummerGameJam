@@ -18,12 +18,15 @@ public class SliceScript : MonoBehaviour
     {
         if (Time.deltaTime == 0 || GameOver.gameEnd)
             return;
-
+        Vector3 screenToWorldPos = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        //Debug.Log(screenToWorldPos.y);
         Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        if (Input.GetMouseButtonDown(0))
+        //Debug.Log(mouse);
+        if (Input.GetMouseButtonDown(0) && mouse.y < screenToWorldPos.y*0.2f*3.7f)
+        {
             start = mouse;
-        else if (Input.GetMouseButtonUp(0))
+        }
+        else if (Input.GetMouseButtonUp(0) && start.y < screenToWorldPos.y * 0.2f * 3.7f)
         {
             end = mouse;
             Vector3 center = (end + start) / 2;
@@ -59,6 +62,7 @@ public class SliceScript : MonoBehaviour
                 moveObj.speed = speed;
                 moveObj.target = end;
             }
+            start = end;
         }
 
     }

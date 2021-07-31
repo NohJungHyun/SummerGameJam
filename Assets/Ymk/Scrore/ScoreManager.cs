@@ -18,6 +18,7 @@ public class ScoreManager : MonoBehaviour
         {
             text = transform.Find("nowscore").GetChild(0).GetComponent<Text>();
             animaton = transform.Find("nowscore").GetComponent<Animation>();
+            transform.Find("bestscore").GetChild(0).GetComponent<Text>().text = GetBestScore().ToString();
             instance = this;
         }
         else
@@ -28,6 +29,7 @@ public class ScoreManager : MonoBehaviour
     {
         int now = int.Parse(instance.text.text);
         now += n;
+        now = Mathf.Max(0, now);
         instance.animaton.Play();
         instance.text.text = now.ToString();
     }
