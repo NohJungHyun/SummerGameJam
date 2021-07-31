@@ -23,13 +23,18 @@ public class SliceScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
             start = mouse;
         else if (Input.GetMouseButtonUp(0))
-        {         
+        {
             end = mouse;
             effectTime = 0.1f;
-            RaycastHit2D[] raycastHit2D = Physics2D.LinecastAll(start, end);
+            Vector3 center = (end + start) / 2;
+            Vector3 dir = (end - start).normalized;
+
+            //АјАн
+            RaycastHit2D[] raycastHit2D = Physics2D.BoxCastAll(center, new Vector3(Vector3.Distance(start, end), 0.5f, 1), Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg, Vector2.zero, 10, 1 << LayerMask.NameToLayer("Ghost")); 
+
             foreach (RaycastHit2D hit in raycastHit2D)
             {
-                Ghost ghost = hit.transform.GetComponentInParent<Ghost>();
+                Ghost ghost = hit.transform.GetComponent<Ghost>();
                 if (ghost == null)
                     continue;
                 ghost.Die();
@@ -43,4 +48,5 @@ public class SliceScript : MonoBehaviour
         }
 
     }
+
 }
