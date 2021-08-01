@@ -35,8 +35,8 @@ Material:
     - _Alpha: 1
     - _Cutoff: 0.5
     - _Hit: 1
-    - _Timescale: -0.5
+    - _Timescale: -0.75
     - __dirty: 0
-    - _noiseamount: 0.021
+    - _noiseamount: 0.05
     m_Colors: []
   m_BuildTextureStacks: []
