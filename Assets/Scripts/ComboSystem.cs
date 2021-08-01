@@ -28,6 +28,10 @@ public class ComboSystem : MonoBehaviour
 
     IEnumerator coroutine;
 
+    public AudioSource audioSource;
+    public List<AudioClip> comboSound;
+
+
     private void Awake()
     {
         instance = this;
@@ -70,6 +74,12 @@ public class ComboSystem : MonoBehaviour
                 ScoreManager.AddScore(scorePerSkill + ((int)(comboCount * 0.1) * 10));
             else
                 ScoreManager.AddScore(scorePerSkill);
+
+            if(comboCount >= 20)
+            {
+                int temp = comboCount - 20;
+            audioSource.PlayOneShot(comboSound[Mathf.Min(comboSound.Count - 1, temp / 20)]);
+            }
 
             if (comboCount > 2)
                 CallEncourageEffect(g, ghostDiePos);
