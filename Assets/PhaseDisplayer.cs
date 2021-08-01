@@ -15,6 +15,7 @@ public class PhaseDisplayer : MonoBehaviour
 
     void Start()
     {
+        phaseNotice = GameObject.Find("PhaseNotice").GetComponentInChildren<Text>();
         ChangeText();
 
         TimeChecker.TimeOn += ChangeSomething;
@@ -42,5 +43,10 @@ public class PhaseDisplayer : MonoBehaviour
     void ChangeColor()
     {
         timerObj.fillRect.GetComponent<Image>().color = Color.Lerp(timerObj.fillRect.GetComponent<Image>().color, colors[phaseNum], changeSpeed * Time.deltaTime);
+    }
+
+    private void OnDestroy() 
+    {
+        TimeChecker.TimeOn -= ChangeSomething;
     }
 }

@@ -31,7 +31,7 @@ public class BadNews : MonoBehaviour
         badDelegate += CallShake;
         badDelegate += InstanciateAlert;
 
-        for(int idx = 0; idx < UIs.Count; idx++)
+        for (int idx = 0; idx < UIs.Count; idx++)
         {
             basicPos.Add(UIs[idx].transform.position);
         }
@@ -78,7 +78,7 @@ public class BadNews : MonoBehaviour
             for (int idx = 0; idx < UIs.Count; idx++)
             {
                 Vector2 randShakePos = new Vector2(Random.Range(-shakeMagnitude, shakeMagnitude) + UIs[idx].transform.position.x, Random.Range(-shakeMagnitude, shakeMagnitude) + UIs[idx].transform.position.y);
-                UIs[idx].transform.position = Vector2.Lerp(UIs[idx].transform.position, randShakePos, Time.deltaTime * 5f) ;
+                UIs[idx].transform.position = Vector2.Lerp(UIs[idx].transform.position, randShakePos, Time.deltaTime * 5f);
             }
 
             //Vector2 randShakePos = new Vector2(Random.Range(-shakeMagnitude, shakeMagnitude) + ui.transform.position.x, Random.Range(-shakeMagnitude, shakeMagnitude) + ui.transform.position.y);
@@ -89,5 +89,11 @@ public class BadNews : MonoBehaviour
             // ui.transform.position = Vector2.Lerp(ui.transform.position, new Vector2(randX, randY), Time.deltaTime * 3f) ;
             yield return null;
         }
+    }
+
+    private void OnDestroy()
+    {
+        badDelegate -= CallShake;
+        badDelegate -= InstanciateAlert;
     }
 }

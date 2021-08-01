@@ -1768,7 +1768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8377019398635474035, guid: 7919f7c4c7020a74abfd05d962d314c2, type: 3}
       propertyPath: phaseBySpendTime
-      value: 20
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8377019398635474036, guid: 7919f7c4c7020a74abfd05d962d314c2, type: 3}
       propertyPath: ghostCaterpalt.ghosts.Array.size
