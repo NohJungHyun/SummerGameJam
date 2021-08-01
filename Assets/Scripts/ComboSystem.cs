@@ -59,7 +59,7 @@ public class ComboSystem : MonoBehaviour
             InitCombo();
     }
 
-    public void IncreaseComboCount(Vector2 ghostDiePos, bool isCatched)
+    public void IncreaseComboCount(Ghost g, Vector2 ghostDiePos, bool isCatched)
     {
         if (isCatched)
         {
@@ -72,13 +72,13 @@ public class ComboSystem : MonoBehaviour
                 ScoreManager.AddScore(scorePerSkill);
 
             if (comboCount > 2)
-                CallEncourageEffect(ghostDiePos);
+                CallEncourageEffect(g, ghostDiePos);
         }
     }
 
     Text backObject;
 
-    public void CallEncourageEffect(Vector2 diePos)
+    public void CallEncourageEffect(Ghost g, Vector2 diePos)
     {
         if (backObject != null)
         {
@@ -101,7 +101,7 @@ public class ComboSystem : MonoBehaviour
         backObject = calledText;
 
         Vector2 vec = new Vector2(0, -5);
-        ParticleSystem p = GameObject.Instantiate(encourageParticle, particlePos, Quaternion.identity).GetComponent<ParticleSystem>();
+        ParticleSystem p = GameObject.Instantiate(g.GetGhostProperties().particleSystem, particlePos, Quaternion.identity).GetComponent<ParticleSystem>();
         p.gameObject.SetActive(true);
 
         StartCoroutine(FadeOutText(calledText));
@@ -114,7 +114,6 @@ public class ComboSystem : MonoBehaviour
         {
             if (t.color.a > 0.1)
             {
-                Debug.Log("해방이다!");
                 Color fadeOutColor = new Color(0, 0, 0, 0.1f);
                 t.color -= fadeOutColor * fadeoutModifier * ((Application.platform == RuntimePlatform.Android) ? 6 : 1);
             }
