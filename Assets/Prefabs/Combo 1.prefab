@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3513225709666459030}
   - component: {fileID: 3513225709666459031}
+  - component: {fileID: 6965009718002021266}
   m_Layer: 0
   m_Name: Combo 1
   m_TagString: Untagged
@@ -43,13 +44,122 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7091b0e66be2fdf4287702d816d83ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scorePerSkill: 0
+  paneltyNum: 0
   encourageParticle: {fileID: 2653372246757637448, guid: b97679274ace82d489b5b90974f13134, type: 3}
   comboTextCanvas: {fileID: 0}
   comboText: {fileID: 4373289809458845850, guid: 302e62d4b2e0f274fa28e24c3f3a0dd4, type: 3}
   particlePos: {x: 0, y: -5}
   coninousComboTime: 3
   remainComboTime: 0
-  additionalScore: 0
   comboCount: 0
   fadeoutModifier: 0.05
   deleteParticleTime: 1
+  audioSource: {fileID: 6965009718002021266}
+  comboSound:
+  - {fileID: 8300000, guid: 4661c8d91d2903943978b7b956e923c0, type: 3}
+  - {fileID: 8300000, guid: d434c754744377a4ba21d5b0b6e96d32, type: 3}
+  - {fileID: 8300000, guid: 422528c532dcb6941a9ec6771a4f34b5, type: 3}
+  - {fileID: 8300000, guid: 33cc53976b68f5d4c9bc207af42cddfc, type: 3}
+  - {fileID: 8300000, guid: 017a994bca184b14087907d592461dd1, type: 3}
+  - {fileID: 8300000, guid: 20bfda912d92f694fa701c14f1f57106, type: 3}
+  - {fileID: 8300000, guid: 35465d6d137889f4bad65b5c4030e543, type: 3}
+  - {fileID: 8300000, guid: 1dc8c8b570408984a91a0efc218add06, type: 3}
+  - {fileID: 8300000, guid: 1510e373c2ad9c64d80905775e99fadd, type: 3}
+  - {fileID: 8300000, guid: 8d6f9a188be26234f9981182c3cee4eb, type: 3}
+--- !u!82 &6965009718002021266
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3513225709666459028}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

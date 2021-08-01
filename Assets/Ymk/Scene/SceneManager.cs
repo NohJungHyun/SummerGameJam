@@ -68,7 +68,7 @@ public class SceneManager : MonoBehaviour
             if(i == 1)
             {
                 UnityEngine.SceneManagement.SceneManager.LoadScene(scene.ToString());
-                yield return new WaitForSeconds(0.6f);
+                yield return new WaitForSeconds(0.3f);
             }
         }
 
