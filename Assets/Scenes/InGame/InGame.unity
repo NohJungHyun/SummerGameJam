@@ -156,8 +156,7 @@ Transform:
   - {fileID: 1964407294}
   - {fileID: 1686504822}
   - {fileID: 1471410780}
-  - {fileID: 1100926055}
-  - {fileID: 1791223893}
+  - {fileID: 735950390}
   - {fileID: 1321132249}
   - {fileID: 413949020}
   m_Father: {fileID: 0}
@@ -250,7 +249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1693040337352986171, guid: 4da421fcc10d1f14d9bd74ab550ecba7, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1693040337352986171, guid: 4da421fcc10d1f14d9bd74ab550ecba7, type: 3}
       propertyPath: m_AnchorMax.x
@@ -331,6 +330,38 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1693040337352986171, guid: 4da421fcc10d1f14d9bd74ab550ecba7, type: 3}
   m_PrefabInstance: {fileID: 413949019}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &735950389
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 735950390}
+  m_Layer: 0
+  m_Name: BGM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &735950390
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735950389}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -23.52511, y: 4.70896, z: -0.61059254}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1100926055}
+  - {fileID: 1791223893}
+  m_Father: {fileID: 216814098}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1100926053
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +373,7 @@ GameObject:
   - component: {fileID: 1100926055}
   - component: {fileID: 1100926054}
   m_Layer: 0
-  m_Name: BGM
+  m_Name: BGM0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -359,7 +390,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3c563efbe9cf1be4499b6d9ed5f07878, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -452,11 +483,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100926053}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -23.52511, y: 4.70896, z: -0.61059254}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 216814098}
-  m_RootOrder: 6
+  m_Father: {fileID: 735950390}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1321132245
 GameObject:
@@ -550,7 +581,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 216814098}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -793,7 +824,7 @@ GameObject:
   - component: {fileID: 1791223893}
   - component: {fileID: 1791223894}
   m_Layer: 0
-  m_Name: BGM (1)
+  m_Name: BGM1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -807,11 +838,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791223892}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -23.52511, y: 4.70896, z: -0.61059254}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 216814098}
-  m_RootOrder: 7
+  m_Father: {fileID: 735950390}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1791223894
 AudioSource:
@@ -825,7 +856,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5e63d0aed4321544fa19559ffac4f784, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1161,6 +1192,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 216814098}
     m_Modifications:
+    - target: {fileID: 3198743788848995728, guid: 45f2cab46c01afc4998bba78bbf1806c, type: 3}
+      propertyPath: bgm.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3198743788848995728, guid: 45f2cab46c01afc4998bba78bbf1806c, type: 3}
+      propertyPath: bgm.Array.data[0]
+      value: 
+      objectReference: {fileID: 1100926054}
+    - target: {fileID: 3198743788848995728, guid: 45f2cab46c01afc4998bba78bbf1806c, type: 3}
+      propertyPath: bgm.Array.data[1]
+      value: 
+      objectReference: {fileID: 1791223894}
     - target: {fileID: 3198743788848995729, guid: 45f2cab46c01afc4998bba78bbf1806c, type: 3}
       propertyPath: m_RootOrder
       value: 1
