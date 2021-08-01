@@ -75,10 +75,10 @@ public class ComboSystem : MonoBehaviour
             else
                 ScoreManager.AddScore(scorePerSkill);
 
-            if(comboCount >= 20)
+            if(comboCount >= 20 && comboCount % 20 == 0)
             {
                 int temp = comboCount - 20;
-            audioSource.PlayOneShot(comboSound[Mathf.Min(comboSound.Count - 1, temp / 20)]);
+                audioSource.PlayOneShot(comboSound[Mathf.Min(comboSound.Count - 1, temp / 20)]);
             }
 
             if (comboCount > 2)
