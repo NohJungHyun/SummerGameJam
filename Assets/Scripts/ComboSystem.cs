@@ -46,6 +46,13 @@ public class ComboSystem : MonoBehaviour
         for (int i = 0; i < 30; i++)
         {
             Text obj = GameObject.Instantiate(comboText, new Vector2(100, 100), Quaternion.identity);
+            float xV = Screen.width / 1080f;
+            float yV = Screen.height / 1920f;
+            RectTransform rect = obj.GetComponent<RectTransform>();
+            Vector2 v = rect.sizeDelta;
+            obj.fontSize = (int)(obj.fontSize*Mathf.Min(xV, yV));
+            v = new Vector2(v.x * xV, v.y * yV);
+            rect.sizeDelta = v;
             obj.transform.SetParent(comboTextCanvas.transform);
 
             obj.gameObject.SetActive(false);
