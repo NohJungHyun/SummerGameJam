@@ -14,6 +14,8 @@ public class TimerScript : MonoBehaviour
         instance = this;
         slider = GetComponent<Slider>();
         GameOver.gameEnd = false;
+
+        slider.interactable = false;
     }
 
     public GameObject gameOver;
