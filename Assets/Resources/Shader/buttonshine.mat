@@ -43,7 +43,7 @@ Material:
     - _StencilOp: 0
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
-    - _Timescale: 2
+    - _Timescale: 3
     - _UseUIAlphaClip: 0
     - _alpha: 0.2
     m_Colors:

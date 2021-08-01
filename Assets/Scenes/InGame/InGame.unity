@@ -123,42 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &77672980 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2389729188152377639, guid: 10648e9e2d1afb24ba31a3e145442f96, type: 3}
-  m_PrefabInstance: {fileID: 1964407290}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &77672983 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1971307698209942045, guid: 10648e9e2d1afb24ba31a3e145442f96, type: 3}
-  m_PrefabInstance: {fileID: 1964407290}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77672980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &77672984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77672980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dc394cd4bedbfa4dad53c0b910c2475, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  phaseNum: 0
-  changeSpeed: 1
-  phaseNotice: {fileID: 0}
-  timerObj: {fileID: 77672983}
-  colors:
-  - {r: 0.654902, g: 0.9921569, b: 0.46274513, a: 1}
-  - {r: 0.9528302, g: 0.7261905, b: 0.05842829, a: 1}
-  - {r: 0.9716981, g: 0.3350234, b: 0.2062567, a: 1}
 --- !u!1 &278204411
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,18 +746,6 @@ PrefabInstance:
     - target: {fileID: 4653864725838762017, guid: 10648e9e2d1afb24ba31a3e145442f96, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4730527674925680071, guid: 10648e9e2d1afb24ba31a3e145442f96, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5732937359401428217, guid: 10648e9e2d1afb24ba31a3e145442f96, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5732937359401428217, guid: 10648e9e2d1afb24ba31a3e145442f96, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -115
       objectReference: {fileID: 0}
     - target: {fileID: 5913860733607632411, guid: 10648e9e2d1afb24ba31a3e145442f96, type: 3}
       propertyPath: m_Name
