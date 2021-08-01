@@ -22,6 +22,8 @@ MonoBehaviour:
   basicPos: {x: 0, y: 0}
   target: {x: 0, y: 0}
   particleSystem: {fileID: 2653372246757637448, guid: abbc889259220eb4eb4d1aa3e3bc1853, type: 3}
+  deadSound: {fileID: 8300000, guid: 3296b3b991838bf4389fd14a2c6d88cb, type: 3}
+  exitSound: {fileID: 8300000, guid: d693c43dc30d12f48809c44fb1af6b10, type: 3}
   ghostScore: 50
   hideValue: 1
   showValue: 3

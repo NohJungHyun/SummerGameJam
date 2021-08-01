@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpawnningPool : MonoBehaviour
 {
+    public static SpawnningPool instance;
+
     public Transform spawnerParent;
 
     [SerializeField]
@@ -36,6 +38,19 @@ public class SpawnningPool : MonoBehaviour
     List<int>[] V = new List<int>[8];
 
     public AudioSource[] bgm;
+
+    private AudioSource se;
+    public AudioClip deadSE;
+    public AudioClip exitSE;
+    private void Awake()
+    {
+        instance = this;
+        se = GetComponent<AudioSource>();
+    }
+
+    public static void RunDeadSound()=> instance.se.PlayOneShot(instance.deadSE);
+
+    public static void RunExitSound()=> instance.se.PlayOneShot(instance.exitSE);
 
     void Start()
     {

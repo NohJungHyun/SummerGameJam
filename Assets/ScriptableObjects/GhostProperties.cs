@@ -16,6 +16,7 @@ public abstract class GhostProperties : ScriptableObject
 
     public ParticleSystem particleSystem;
 
+
     public int ghostScore;
 
     public virtual void Init(Ghost ghost)

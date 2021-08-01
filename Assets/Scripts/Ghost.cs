@@ -11,6 +11,7 @@ public class Ghost : MonoBehaviour
 
     public int spawnPos = -1;
     public int targetPos = -1;
+
     void Start()
     {
         ghostProperties = ScriptableObject.Instantiate(proto);
@@ -54,8 +55,12 @@ public class Ghost : MonoBehaviour
         ghostProperties.CallDeadEffect(effect);
         SpawnningPool.spawnQueue.Enqueue(this);
 
-        ComboSystem.instance.IncreaseComboCount(this, transform.position, effect);
+        if (effect)
+            SpawnningPool.RunDeadSound();
+        else
+            SpawnningPool.RunExitSound();
 
+        ComboSystem.instance.IncreaseComboCount(this, transform.position, effect);
         this.gameObject.SetActive(false);
         spawnPos = -1;
         SpawnningPool.curGhostNum--;
