@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Title : MonoBehaviour
 {
-    //ÀÎ°ÔÀÓ ¾ÀÀ¸·Î ÀÌµ¿
+    //ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
     public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.Scene.InGame);
     }
 
-    //°ÔÀÓ Á¾·á
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public void QuitGame()
     {
 #if UNITY_EDITOR
@@ -19,5 +19,10 @@ public class Title : MonoBehaviour
 #else
          Application.Quit();
 #endif
+    }
+
+    public void RecallIntro()
+    {
+        SceneManager.LoadScene(SceneManager.Scene.Intro);
     }
 }

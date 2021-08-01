@@ -23,16 +23,17 @@ public class SceneManager : MonoBehaviour
     protected Image fade;
     private bool nowLoade = false;
 
-    //ÀÌµ¿ÇÒ ¾Àµé
+    //ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public enum Scene
     {
         Title,
         InGame,
         Ymk,
+        Intro,
         Quit
     }
 
-    //ÀÌµ¿ÇÒ¾À,¾ÀÀÌµ¿½Ã°£
+    //ï¿½Ìµï¿½ï¿½Ò¾ï¿½,ï¿½ï¿½ï¿½Ìµï¿½ï¿½Ã°ï¿½
     public static void LoadScene(Scene scene,float delay = 1)
     {
         if (instance == null)
