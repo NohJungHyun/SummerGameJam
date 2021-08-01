@@ -41,7 +41,4 @@ public class HowToPlay : MonoBehaviour
         }
         page[n].GetComponent<Animation>().Play();
     }
-
-
-
 }
