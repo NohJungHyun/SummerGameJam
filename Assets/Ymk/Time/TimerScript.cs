@@ -55,6 +55,6 @@ public class TimerScript : MonoBehaviour
         float accel = slider.maxValue - slider.value;
     
         windowAnimation["ingame_idle"].speed = (accel / animRestrainSpeed);
-        print(windowAnimation["ingame_idle"].speed);
+        // print(windowAnimation["ingame_idle"].speed);
     }
 }
