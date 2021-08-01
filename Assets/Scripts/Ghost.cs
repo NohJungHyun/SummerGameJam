@@ -29,9 +29,6 @@ public class Ghost : MonoBehaviour
             ghostProperties.curPos = transform.position;
 
             ghostProperties.Move();
-
-            print(this.name + "있니?: " + GetGhostProperties());
-
             Arrive();
         }
     }
