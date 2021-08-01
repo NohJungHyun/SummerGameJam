@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ffbcf5cc16f0b045b9fe718261df143, type: 3}
-  m_Name: FlashMan
+  m_Script: {fileID: 11500000, guid: 9a79d3e2124127346bacf031d90df348, type: 3}
+  m_Name: NormalGhost
   m_EditorClassIdentifier: 
   ghost: {fileID: 0}
-  takeCount: 1
+  takeCount: 0
   moveSpeed: 2
   comboCount: 0
   moveEffect: {fileID: 0}
@@ -22,9 +22,6 @@ MonoBehaviour:
   basicPos: {x: 0, y: 0}
   target: {x: 0, y: 0}
   ghostScore: 50
-  hideValue: 1
-  showValue: 3
-  moveAmplified: 2
-  triggerDist: 1
-  castOffDist: 2
-  isFlash: 0
+  shortDist: 1
+  longDist: 1
+  moveAmplified: 1

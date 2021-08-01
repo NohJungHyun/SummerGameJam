@@ -1479,11 +1479,12 @@ MonoBehaviour:
   difficulty: 0
   spawnThrehold: 10
   ghosts:
-  - {fileID: 3419808379480642369, guid: 028ec154ba6b93f459a335c17b917c70, type: 3}
-  - {fileID: 6564110010058115365, guid: cb77928c702fcc146ad8ef906529543b, type: 3}
-  - {fileID: 5623607701584656797, guid: 52b8284e97a0e194bbebac3875acb223, type: 3}
+  - {fileID: 3846525923069591163, guid: 9963cc62e0663f84a8d36e5676c5e47a, type: 3}
+  - {fileID: 3846525923069591163, guid: 9963cc62e0663f84a8d36e5676c5e47a, type: 3}
+  - {fileID: 3846525923069591163, guid: 9963cc62e0663f84a8d36e5676c5e47a, type: 3}
+  - {fileID: 3846525923069591163, guid: 9963cc62e0663f84a8d36e5676c5e47a, type: 3}
   minGhostNum: 0
-  maxGhostNum: 3
+  maxGhostNum: 4
   minSpawnTime: 0.5
   maxSpawnTime: 1
   ememrgencyCallNum: 0
@@ -1566,18 +1567,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8377019398635474036, guid: 7919f7c4c7020a74abfd05d962d314c2, type: 3}
       propertyPath: ghostCaterpalt.ghosts.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8377019398635474036, guid: 7919f7c4c7020a74abfd05d962d314c2, type: 3}
       propertyPath: ghostCaterpalt.ghosts.Array.data[0]
       value: 
       objectReference: {fileID: 3419808379480642369, guid: 028ec154ba6b93f459a335c17b917c70, type: 3}
     - target: {fileID: 8377019398635474036, guid: 7919f7c4c7020a74abfd05d962d314c2, type: 3}
+      propertyPath: ghostCaterpalt.ghosts.Array.data[1]
+      value: 
+      objectReference: {fileID: 6564110010058115365, guid: cb77928c702fcc146ad8ef906529543b, type: 3}
+    - target: {fileID: 8377019398635474036, guid: 7919f7c4c7020a74abfd05d962d314c2, type: 3}
+      propertyPath: ghostCaterpalt.ghosts.Array.data[2]
+      value: 
+      objectReference: {fileID: 5623607701584656797, guid: 52b8284e97a0e194bbebac3875acb223, type: 3}
+    - target: {fileID: 8377019398635474036, guid: 7919f7c4c7020a74abfd05d962d314c2, type: 3}
       propertyPath: ghostCaterpalt.numPerGhost.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8377019398635474036, guid: 7919f7c4c7020a74abfd05d962d314c2, type: 3}
       propertyPath: ghostCaterpalt.numPerGhost.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377019398635474036, guid: 7919f7c4c7020a74abfd05d962d314c2, type: 3}
+      propertyPath: ghostCaterpalt.numPerGhost.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377019398635474036, guid: 7919f7c4c7020a74abfd05d962d314c2, type: 3}
+      propertyPath: ghostCaterpalt.numPerGhost.Array.data[2]
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
