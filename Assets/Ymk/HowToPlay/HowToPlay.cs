@@ -18,10 +18,16 @@ public class HowToPlay : MonoBehaviour
             if (DataManager.instance.playData.tryNum == 0 && DataManager.instance.playData.highScore == 0)
                 howToPlay.SetActive(true);
             else
+            {
+                back.gameObject.SetActive(false);
                 inGame.SetActive(true);
+            }
         }
         else
+        {
             inGame.SetActive(true);
+            back.gameObject.SetActive(false);
+        }
 
     }
 
