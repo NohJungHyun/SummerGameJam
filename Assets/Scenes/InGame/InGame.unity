@@ -123,6 +123,40 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &77672980 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2389729188152377639, guid: 10648e9e2d1afb24ba31a3e145442f96, type: 3}
+  m_PrefabInstance: {fileID: 1964407290}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &77672983 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1971307698209942045, guid: 10648e9e2d1afb24ba31a3e145442f96, type: 3}
+  m_PrefabInstance: {fileID: 1964407290}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77672980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &77672984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77672980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc394cd4bedbfa4dad53c0b910c2475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flags:
+  - {fileID: 6602759303145812351, guid: 881f99f32811c8b4fa346e329083f392, type: 3}
+  - {fileID: 6602759303145812351, guid: 881f99f32811c8b4fa346e329083f392, type: 3}
+  - {fileID: 6602759303145812351, guid: 881f99f32811c8b4fa346e329083f392, type: 3}
+  timerObj: {fileID: 77672983}
+  offsetFromTimer: 0
 --- !u!1 &178851333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,6 +1213,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5732937359401428217, guid: 10648e9e2d1afb24ba31a3e145442f96, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5732937359401428217, guid: 10648e9e2d1afb24ba31a3e145442f96, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -115
+      objectReference: {fileID: 0}
     - target: {fileID: 5913860733607632411, guid: 10648e9e2d1afb24ba31a3e145442f96, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -1562,7 +1604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8377019398635474035, guid: 7919f7c4c7020a74abfd05d962d314c2, type: 3}
       propertyPath: phaseBySpendTime
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8377019398635474036, guid: 7919f7c4c7020a74abfd05d962d314c2, type: 3}
       propertyPath: ghostCaterpalt.ghosts.Array.size
