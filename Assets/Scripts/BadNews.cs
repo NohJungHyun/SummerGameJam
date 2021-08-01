@@ -61,7 +61,7 @@ public class BadNews : MonoBehaviour
 
         while (true)
         {
-            Debug.Log(remainTime);
+            //Debug.Log(remainTime);
 
             remainTime += Time.deltaTime;
 
