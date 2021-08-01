@@ -5,10 +5,13 @@ using UnityEngine.UI;
 
 public class TimerScript : MonoBehaviour
 {
+    public static TimerScript instance;
+
     private Slider slider;
 
     private void Awake()
     {
+        instance = this;
         slider = GetComponent<Slider>();
         GameOver.gameEnd = false;
     }
@@ -28,5 +31,12 @@ public class TimerScript : MonoBehaviour
         }
         else
             slider.value -= Time.deltaTime;
+    }
+
+    public static void AddTime(float time)
+    {
+        instance.slider.value += time;
+        instance.slider.value = Mathf.Max(0, instance.slider.value);
+        instance.slider.value = Mathf.Min(60, instance.slider.value);
     }
 }
