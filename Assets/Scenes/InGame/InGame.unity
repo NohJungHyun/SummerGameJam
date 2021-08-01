@@ -971,7 +971,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1139,7 +1139,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1686504821
 PrefabInstance:
@@ -1524,7 +1524,8 @@ MonoBehaviour:
   - {fileID: 3846525923069591163, guid: 9963cc62e0663f84a8d36e5676c5e47a, type: 3}
   - {fileID: 3846525923069591163, guid: 9963cc62e0663f84a8d36e5676c5e47a, type: 3}
   - {fileID: 3846525923069591163, guid: 9963cc62e0663f84a8d36e5676c5e47a, type: 3}
-  - {fileID: 3846525923069591163, guid: 9963cc62e0663f84a8d36e5676c5e47a, type: 3}
+  - {fileID: 6564110010058115365, guid: cb77928c702fcc146ad8ef906529543b, type: 3}
+  - {fileID: 5623607701584656797, guid: 52b8284e97a0e194bbebac3875acb223, type: 3}
   minGhostNum: 0
   maxGhostNum: 4
   minSpawnTime: 0.5
@@ -1561,7 +1562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8377019398635474034, guid: 7919f7c4c7020a74abfd05d962d314c2, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8377019398635474034, guid: 7919f7c4c7020a74abfd05d962d314c2, type: 3}
       propertyPath: m_LocalPosition.x

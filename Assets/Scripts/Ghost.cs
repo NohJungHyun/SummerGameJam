@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ghost : MonoBehaviour, IDamagable
+public class Ghost : MonoBehaviour
 {
     // [SerializeField]
     public GhostProperties proto;
@@ -52,17 +52,12 @@ public class Ghost : MonoBehaviour, IDamagable
         ghostProperties.basicPos = transform.position;
     }
 
-    public void TakeCount(int count)
-    {
-        Debug.Log("터치 성공!");
-    }
-
     public void Die(bool effect = false)
     {
         ghostProperties.CallDeadEffect(effect);
         SpawnningPool.spawnQueue.Enqueue(this);
 
-        ComboSystem.instance.IncreaseComboCount(transform.position, effect);
+        ComboSystem.instance.IncreaseComboCount(this, transform.position, effect);
 
         this.gameObject.SetActive(false);
         spawnPos = -1;
@@ -86,16 +81,6 @@ public class Ghost : MonoBehaviour, IDamagable
     public void SetGhostProperties(GhostProperties p)
     {
         ghostProperties = p;
-    }
-
-    // 파티클 및 이펙트 보여주기
-    public IEnumerator CallBadNews()
-    {
-        while (true)
-        {
-
-            yield return null;
-        }
     }
 }
 

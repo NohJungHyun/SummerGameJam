@@ -14,6 +14,8 @@ public abstract class GhostProperties : ScriptableObject
     public ParticleSystem deadEffect;
     public Vector2 curPos, basicPos, target;
 
+    public ParticleSystem particleSystem;
+
     public int ghostScore;
 
     public virtual void Init(Ghost ghost)
@@ -33,16 +35,16 @@ public abstract class GhostProperties : ScriptableObject
         if(effect)
         {
             Instantiate(deadEffect, curPos, Quaternion.identity);
+
             if(ComboSystem.instance.comboCount > 10)
-            TimerScript.AddTime(0.01f* Mathf.Max(50,ComboSystem.instance.comboCount));
+                TimerScript.AddTime(0.01f* Mathf.Max(50,ComboSystem.instance.comboCount));
         }
     }
 
-    public virtual void RankUp()
-    {
-
-    }
-
+    // public void CallComboParticle(Vector2 pos)
+    // {
+    //     Instantiate(particleSystem, pos, Quaternion.identity);
+    // }
 }
 
 

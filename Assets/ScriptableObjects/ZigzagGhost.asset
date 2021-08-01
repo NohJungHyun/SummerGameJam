@@ -21,5 +21,6 @@ MonoBehaviour:
   curPos: {x: 0, y: 0}
   basicPos: {x: 0, y: 0}
   target: {x: 0, y: 0}
+  particleSystem: {fileID: 2653372246757637448, guid: 991980b8cd1e56347a784752dc0f785c, type: 3}
   ghostScore: 50
   magnitude: 12
