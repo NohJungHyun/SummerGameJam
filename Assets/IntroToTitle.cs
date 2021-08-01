@@ -6,7 +6,7 @@ using UnityEngine.Playables;
 
 public class IntroToTitle : MonoBehaviour
 {
-
+    public float moveNextNum;
     public PlayableDirector playableDirector;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,7 @@ public class IntroToTitle : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             playableDirector.Pause();
-            SceneManager.LoadScene(SceneManager.Scene.Title);
+            SceneManager.LoadScene(SceneManager.Scene.Title, moveNextNum);
         }
     }
 }

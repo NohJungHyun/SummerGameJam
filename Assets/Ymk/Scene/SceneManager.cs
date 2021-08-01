@@ -34,7 +34,7 @@ public class SceneManager : MonoBehaviour
     }
 
     //�̵��Ҿ�,���̵��ð�
-    public static void LoadScene(Scene scene,float delay = 1)
+    public static void LoadScene(Scene scene,float delay = 0.65f)
     {
         if (instance == null)
             return;
