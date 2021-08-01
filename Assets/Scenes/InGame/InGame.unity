@@ -739,6 +739,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 77672984, guid: 10648e9e2d1afb24ba31a3e145442f96, type: 3}
+      propertyPath: phaseNotice
+      value: 
+      objectReference: {fileID: 1971825348}
     - target: {fileID: 1454344424374705293, guid: 10648e9e2d1afb24ba31a3e145442f96, type: 3}
       propertyPath: animRestrainSpeed
       value: 6
@@ -856,6 +860,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2270076328934088153, guid: 10648e9e2d1afb24ba31a3e145442f96, type: 3}
   m_PrefabInstance: {fileID: 1964407290}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1971825348 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8867698000427885834, guid: 10648e9e2d1afb24ba31a3e145442f96, type: 3}
+  m_PrefabInstance: {fileID: 1964407290}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3198743788958162634
 PrefabInstance:
   m_ObjectHideFlags: 0
