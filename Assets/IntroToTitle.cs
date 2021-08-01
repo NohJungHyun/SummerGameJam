@@ -14,13 +14,32 @@ public class IntroToTitle : MonoBehaviour
         playableDirector.Play();
     }
 
+    private void OnEnable()
+    {
+        playableDirector.stopped += CheckState;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            playableDirector.Pause();
-            SceneManager.LoadScene(SceneManager.Scene.Title, moveNextNum);
-        }
+
+    }
+
+    public void CheckState(PlayableDirector director)
+    {
+        SceneManager.LoadScene(SceneManager.Scene.Title, moveNextNum);
+    }
+
+    public void TouchToTitle()
+    {
+        Debug.Log("오호홍");
+
+        playableDirector.Pause();
+        SceneManager.LoadScene(SceneManager.Scene.Title, moveNextNum);
+    }
+
+    private void OnDisable()
+    {
+        playableDirector.stopped -= CheckState;
     }
 }
