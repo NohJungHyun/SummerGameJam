@@ -37,7 +37,7 @@ public abstract class GhostProperties : ScriptableObject
             Instantiate(deadEffect, curPos, Quaternion.identity);
 
             if(ComboSystem.instance.comboCount > 10)
-                TimerScript.AddTime(0.01f* Mathf.Max(50,ComboSystem.instance.comboCount));
+                TimerScript.AddTime(0.01f* Mathf.Max(30,ComboSystem.instance.comboCount));
         }
     }
 
