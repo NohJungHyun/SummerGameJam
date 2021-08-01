@@ -30,6 +30,7 @@ public class SceneManager : MonoBehaviour
         InGame,
         Ymk,
         Intro,
+        HowToPlay,
         Quit
     }
 
