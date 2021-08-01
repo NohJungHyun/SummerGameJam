@@ -32,8 +32,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Distortamount: 0.02364436
-    - _Timescale: 1
+    - _Distortamount: 0.0391
+    - _Timescale: 2
     - __dirty: 0
     m_Colors: []
   m_BuildTextureStacks: []
