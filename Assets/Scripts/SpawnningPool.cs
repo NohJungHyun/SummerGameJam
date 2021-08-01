@@ -35,6 +35,8 @@ public class SpawnningPool : MonoBehaviour
     public static List<Vector2> Node = new List<Vector2>();
     List<int>[] V = new List<int>[8];
 
+    public AudioSource[] bgm;
+
     void Start()
     {
         curGhostNum = 0;
@@ -163,8 +165,10 @@ public class SpawnningPool : MonoBehaviour
         ghostInst.gameObject.SetActive(false);
     }
 
+    int backDifficulty = -1;
     public void RankCheck()
     {
+        backDifficulty = difficulty;
         difficulty++;
 
         RankUp(table.minGhostNumTable, table.maxGhostNumTable, table.minSpawnTime, table.maxSpawnTime);
@@ -180,9 +184,24 @@ public class SpawnningPool : MonoBehaviour
             }
         }
 
+        if (backDifficulty == 2)
+            StartCoroutine(StartBGMReverse());
+
     }
 
-    public void RankUp(List<float> _minSpawn, List<float> _maxSpawn, List<float> _minSpawnTime, List<float> _maxSpawnTime)
+    IEnumerator StartBGMReverse()
+    {
+        bgm[1].Play();
+        while(bgm[0].volume > 0)
+        {
+            bgm[0].volume -= Time.deltaTime;
+            bgm[1].volume += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        bgm[0].Stop();
+    }
+
+            public void RankUp(List<float> _minSpawn, List<float> _maxSpawn, List<float> _minSpawnTime, List<float> _maxSpawnTime)
     {
         if (_minSpawn.Count - 1 < difficulty) return;
 
