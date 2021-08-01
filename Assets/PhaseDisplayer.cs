@@ -5,35 +5,42 @@ using UnityEngine.UI;
 
 public class PhaseDisplayer : MonoBehaviour
 {
-    public List<RectTransform> flags;
-
+    public int phaseNum;
+    public float changeSpeed;
+    public Text phaseNotice;
     public Slider timerObj;
 
-    int phaseChecker;
+    [ColorUsage(true)]
+    public List<Color> colors = new List<Color>();
 
-    public float offsetFromTimer;
-
-    void Start() 
+    void Start()
     {
-        for(int idx = 0; idx < flags.Count; idx++)
-        {
-            float rectSizeX = GetComponent<RectTransform>().rect.size.x;
-            float divide = rectSizeX / flags.Count;
+        ChangeText();
 
-            RectTransform rect = Instantiate(flags[idx], new Vector2((divide * idx) + offsetFromTimer, transform.position.y), Quaternion.identity);
-
-            rect.transform.SetParent(transform);
-
-            flags[idx] = rect; 
-        }
-        flags.Reverse();
-
-        TimeChecker.TimeOn += DecreaseFlags;
+        TimeChecker.TimeOn += ChangeSomething;
     }
 
-    void DecreaseFlags()
+    void Update()
     {
-        flags[phaseChecker].gameObject.SetActive(false);
-        phaseChecker++;
+        if(phaseNum < colors.Count)
+            timerObj.fillRect.GetComponent<Image>().color = Color.Lerp(timerObj.fillRect.GetComponent<Image>().color, colors[phaseNum], changeSpeed * Time.deltaTime);
+    }
+
+    void ChangeSomething()
+    {
+        phaseNum++;
+
+        ChangeText();
+        // ChangeColor();
+    }
+
+    void ChangeText()
+    {
+        phaseNotice.text = phaseNum.ToString();
+    }
+
+    void ChangeColor()
+    {
+        timerObj.fillRect.GetComponent<Image>().color = Color.Lerp(timerObj.fillRect.GetComponent<Image>().color, colors[phaseNum], changeSpeed * Time.deltaTime);
     }
 }
