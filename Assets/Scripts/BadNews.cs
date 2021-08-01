@@ -51,14 +51,15 @@ public class BadNews : MonoBehaviour
 
     public void CallShake()
     {
-        StartCoroutine("ShakeUI");
+        if (!GameOver.gameEnd)
+            StartCoroutine("ShakeUI");
     }
 
     public IEnumerator ShakeUI()
     {
         remainTime = 0;
 
-        while (!GameOver.gameEnd)
+        while (true)
         {
             Debug.Log(remainTime);
 
