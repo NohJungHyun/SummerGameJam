@@ -25,6 +25,7 @@ public class TimeChecker : MonoBehaviour
 
         if(spendTime > phaseBySpendTime && 60 > totalTime)
         {
+            Debug.LogWarning("타임 체커 온!!!");
             totalTime += spendTime;
             spendTime = 0;
             

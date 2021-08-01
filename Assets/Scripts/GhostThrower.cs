@@ -37,4 +37,9 @@ public class GhostThrower : MonoBehaviour
             }
         }
     }
+
+    private void OnDestroy()
+    {
+        TimeChecker.TimeOn -= ThrowToSpwanList;
+    }
 }

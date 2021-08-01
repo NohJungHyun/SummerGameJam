@@ -114,7 +114,6 @@ public class ComboSystem : MonoBehaviour
         {
             if (t.color.a > 0.1)
             {
-                Debug.Log("해방이다!");
                 Color fadeOutColor = new Color(0, 0, 0, 0.1f);
                 t.color -= fadeOutColor * fadeoutModifier * ((Application.platform == RuntimePlatform.Android) ? 6 : 1);
             }
