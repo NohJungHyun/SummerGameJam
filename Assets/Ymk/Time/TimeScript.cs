@@ -6,12 +6,11 @@ public class TimeScript : MonoBehaviour
 {
     public static float platformSpeed()
     {
-        if (Application.platform == RuntimePlatform.Android)
-            return 3;
-        else
+        if (Application.platform == RuntimePlatform.WindowsEditor)
             return 1;
+        else
+            return Time.deltaTime / 0.002f;
     }
-
 
     public GameObject runBtn;
     public GameObject stopBtn;
