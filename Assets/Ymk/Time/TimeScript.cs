@@ -28,7 +28,7 @@ public class TimeScript : MonoBehaviour
     
     private void OnApplicationPause(bool pause)
     {  
-        if (pause)
+        if (pause && !GameOver.gameEnd)
         {
             bPaused = true;
             RunGame(false);
