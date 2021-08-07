@@ -22,4 +22,23 @@ public class TimeScript : MonoBehaviour
         runBtn.SetActive(!state);
         stopBtn.SetActive(state);
     }
+
+
+    bool bPaused = false;
+    
+    private void OnApplicationPause(bool pause)
+    {  
+        if (pause)
+        {
+            bPaused = true;
+            RunGame(false);
+        }
+        else
+        {
+            if (bPaused)
+            {
+                bPaused = false;
+            }
+        }
+    }
 }
